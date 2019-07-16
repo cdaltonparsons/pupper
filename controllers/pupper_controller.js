@@ -1,11 +1,22 @@
-// var express = require("express");
+var exports = module.exports = {}
+// these are the res.renders for our sign up, sign in and then the protected page, called here dashboard
+exports.signup = function(req,res){
 
-// var router = express.Router();
+	res.render('signup'); 
+}
 
-// // Import the model (burger.js) to use its database functions.
-// var pupper = require("../models/pupper.js");
+exports.signin = function(req,res){
 
+	res.render('signin'); 
+}
 
+exports.dashboard = function(req,res){
+	res.render('dashboard'); 
+}
 
+exports.logout = function(req,res){
+  req.session.destroy(function(err) {
+  res.redirect('/');
+  });
 
-// module.exports = router;
+}
