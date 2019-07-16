@@ -2,7 +2,8 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-
+var passport = require("passport");
+var session = require("express-session")
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -15,8 +16,20 @@ var db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// for passport
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Static directory
-app.use(express.static("public"));
+// app.use(express.static("public"));
+
+require("./routes/html-routes.js")(app)
+require("./routes/app-api-routes.js")(app)
+require("./routes/auth-routes.js")(app)
+require("./config/passport/passport.js")(passport, db.user);
 
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync( { force: true }).then(function(){
