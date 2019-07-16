@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Match = sequelize.define("Match", {
         ownerName: {
-            Type: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
