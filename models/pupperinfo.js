@@ -17,55 +17,55 @@ module.exports = function(sequelize, DataTypes) {
       image: {
         type: DataTypes.BLOB
       },
-      Q1: {
+      q1: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q2: {
+      q2: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q3: {
+      q3: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q4: {
+      q4: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q5: {
+      q5: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q6: {
+      q6: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q7: {
+      q7: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       }, 
-      Q8: {
+      q8: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q9: {
+      q9: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q10: {
+      q10: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q11: {
+      q11: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q12: {
+      q12: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      Q13: {
+      q13: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       }
