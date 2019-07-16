@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // for passport
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-); // session secret
+// app.use(
+//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+// ); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
 
