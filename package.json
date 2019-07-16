@@ -25,8 +25,7 @@
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
-    "sequelize": "^5.10.1",
-    "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.10.1"
   }
 }
