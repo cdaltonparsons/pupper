@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Pupper = sequelize.define("Pupper", {
         ownerName: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
