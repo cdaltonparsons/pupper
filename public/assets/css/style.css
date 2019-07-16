@@ -1,3 +1,8 @@
-.display-1 {
+#logo {
     font-family: 'Lobster', cursive;
+    font-size: 175px;
+}
+
+body {
+    background: ghostwhite;
 }
