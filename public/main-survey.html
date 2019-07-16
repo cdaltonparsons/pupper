@@ -1,18 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootswatch -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-T5jhQKMh96HMkXwqVMSjF3CmLcL1nT9//tCqu9By5XSdj7CwR0r+F3LTzUdfkkQf" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/fd64f95310.js"></script>
+    <!-- CSS Override -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">	
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/img/paw.ico" type="image/x-icon">	
+    <title>Pupper</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Front End JS -->
+    <script src="./assets/js/puppers.js"></script>
+    </head>
+</head>
+
+<body>
+
+
+
+
 <!-- Survery "header" -->
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="jumbotron border border-secondary">
-                <h2 class="display-2">Pupper</h2>
+            <div class="jumbotron bg-secondary">
+                <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw"></i></h1>
                 <hr>
-                <h2 class="display-4"><strong>&nbsp;&nbsp;&nbsp;The Survey</strong></h2>
+                <h2 class="display-4 text-danger">&nbsp;&nbsp;&nbsp;The Survey</h2>
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="container">
+<div class="container bg-secondary">
     <div class="row">
         <div class="col-12">
         <!-- Modal -->
@@ -37,18 +64,22 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Survey form -->
-<div class="container bg-light">
+<div class="container bg-light text-danger">
     <div class="row border border-secondary">
         <div class="col-12">
             <br>
-            <h3><i class="fas fa-address-card"></i>&nbsp;<strong>About You</strong></h3>
+            <h3><i class="fas fa-address-card"></i>&nbsp;<strong>About Your Pupper</strong></h3>
             <form>
                 <div class="form-group">
-                      <label for="name">Name (required)</label>
-                      <input type="text" class="form-control" id="name" required>
+                      <label for="name">Your Name (required)</label>
+                      <input type="text" class="form-control" id="owner-name" required>
+                </div>
+                <div class="form-group">
+                      <label for="name">Dog's Name (required)</label>
+                      <input type="text" class="form-control" id="dog-name" required>
                 </div>
                 <div class="form-group">
                     <label for="photo">Link to Photo (required)</label>
@@ -58,17 +89,14 @@
                 <h3><i class="fas fa-question-circle"></i>&nbsp;<strong>Questions</strong></h3>
                 <small>Select from each dropdown menu:</small>
                 <br>
-                <small>1 - Strongly Disagree &nbsp;|&nbsp; 2 - Disagree &nbsp;|&nbsp; 3 - Neutral &nbsp;|&nbsp; 4- Agree &nbsp;|&nbsp; 5 - Strongly Agree</small>
+                <small>True, False, or Unknown.</small>
                 <br>
                 <br>
                 <div class="form-group">
                     <label for="q1">1) Your mind is always buzzing with unexplored ideas and plans.</label>
                     <select class="form-control form-group col-md-3 questions" id="q1">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="0">False</option>
+                        <option value="1">True</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -168,3 +196,17 @@
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <p>Copyright© Carolyn, Charlie, Claudia, & Jess, 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
