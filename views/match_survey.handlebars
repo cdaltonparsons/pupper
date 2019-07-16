@@ -1,0 +1,170 @@
+<!-- Survery "header" -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron border border-secondary">
+                <h2 class="display-2">Pupper</h2>
+                <hr>
+                <h2 class="display-4"><strong>&nbsp;&nbsp;&nbsp;The Survey</strong></h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+        <!-- Modal -->
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h4 class="modal-title" id="title">Your Compatible Friend Match Is:</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body mx-auto">
+                        <h5 id="match-message"></h5>
+                        <img id="match-photo" src="#" alt="Your Match Photo" class="img-thumbnail">
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Survey form -->
+<div class="container bg-light">
+    <div class="row border border-secondary">
+        <div class="col-12">
+            <br>
+            <h3><i class="fas fa-address-card"></i>&nbsp;<strong>About You</strong></h3>
+            <form>
+                <div class="form-group">
+                      <label for="name">Name (required)</label>
+                      <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Link to Photo (required)</label>
+                    <input type="text" class="form-control" id="photo" required>
+                </div>
+                <hr>
+                <h3><i class="fas fa-question-circle"></i>&nbsp;<strong>Questions</strong></h3>
+                <small>Select from each dropdown menu:</small>
+                <br>
+                <small>1 - Strongly Disagree &nbsp;|&nbsp; 2 - Disagree &nbsp;|&nbsp; 3 - Neutral &nbsp;|&nbsp; 4- Agree &nbsp;|&nbsp; 5 - Strongly Agree</small>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="q1">1) Your mind is always buzzing with unexplored ideas and plans.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q2">2) Generally speaking, you rely more on your experience than your imagination.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q3">3) You find it easy to stay relaxed and focused even when there is some pressure.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q3">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q4">4) You rarely do something just out of sheer curiosity.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q4">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q5">5) People can rarely upset you.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q5">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q6">6) It is often difficult for you to relate to other people’s feelings.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q6">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q7">7) In a discussion, truth should be more important than people’s sensitivities.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q7">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q8">8) You rarely get carried away by fantasies and ideas.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q8">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q9">9) You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q9">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="q10">10) You feel more energetic after spending time with a group of people.</label>
+                    <select class="form-control form-group col-md-3 questions" id="q10">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-secondary" id="submit">Submit</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
