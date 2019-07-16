@@ -1,8 +1,16 @@
 #logo {
     font-family: 'Lobster', cursive;
-    font-size: 175px;
+    font-size: 185px;
+}
+
+#paw {
+    font-size: 135px;
 }
 
 body {
     background: ghostwhite;
+}
+
+#footer-text {
+    font-size: 12px;
 }
