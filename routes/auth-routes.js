@@ -1,7 +1,7 @@
 var controller = require("../controllers/pupper_controller.js");
 
-module.exports = function(app, passport) {
-    app.get("/signup", controller.signup);
+module.exports = function (app, passport) {
+  app.get("/signup", controller.signup);
 
   app.get("/signin", controller.signin);
 
