@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Static directory
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 require("./routes/html-routes.js")(app, passport)
 require("./routes/app-api-routes.js")(app)
