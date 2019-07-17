@@ -52,9 +52,34 @@ $("#submit").on("click", function(event) {
             console.log("added new pupper", data);
 
         });
-        
+
     } else {
         alert(`Please complete all required fields.`);
         $("input").addClass("border border-danger");
     }
 });
+
+$("#find-match").on("click", function(event) {
+    event.preventDefault();
+
+    var q1Input = parseInt($("#match-q1 :selected").val());
+    var q2Input = parseInt($("#match-q2 :selected").val());
+    var q3Input = parseInt($("#match-q3 :selected").val());
+
+    var newMatch = {
+            size: q1Input,
+            energetic: q2Input,
+            dominant: q3Input,
+        };
+
+        alert("Thank you for submitting your match requirements!");
+
+        $("select").val("1");
+
+        $.post("/api/match", newMatch)
+            .then(function(data) {
+            console.log("added new match reqs", data);
+
+        });
+});
+

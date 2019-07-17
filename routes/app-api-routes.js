@@ -12,7 +12,8 @@ module.exports = function (app) {
     // Adding to pupper table
     app.post("/api/pups", function (req, res) {
         db.Pupper.create(req.body).then(function (pupper) {
-            res.json(pupper)
+            console.log(req.body);
+            res.json(pupper);
         });
     });
 
