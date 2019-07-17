@@ -35,9 +35,4 @@ module.exports = function (app) {
 //             }).then(function (pupper) {
 //                 res.json(pupper);
 //             });
-<<<<<<< HEAD
-//     });
-};
-=======
 // }
->>>>>>> 6f9acb4f7ec7f12c936837c18c390e566bec6748
