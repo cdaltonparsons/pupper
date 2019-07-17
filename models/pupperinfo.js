@@ -17,55 +17,55 @@ module.exports = function(sequelize, DataTypes) {
       image: {
         type: DataTypes.BLOB
       },
-      q1: {
+      size: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q2: {
+      familyFriendly: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q3: {
+      energetic: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q4: {
+      lazy: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q5: {
+      strangerDanger: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q6: {
+      dogDanger: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q7: {
+      largeDogDanger: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       }, 
-      q8: {
+      smallDogDanger: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q9: {
+      dominant: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q10: {
+      doesntShare: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q11: {
+      chaser: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q12: {
+      wrestler: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      q13: {
+      allDogFriendly: {
         type: DataTypes.INTEGER,
         defaultValue: 1
       }
