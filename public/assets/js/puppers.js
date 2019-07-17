@@ -62,24 +62,27 @@ $("#submit").on("click", function(event) {
 $("#find-match").on("click", function(event) {
     event.preventDefault();
 
-    var q1Input = parseInt($("#match-q1 :selected").val());
-    var q2Input = parseInt($("#match-q2 :selected").val());
-    var q3Input = parseInt($("#match-q3 :selected").val());
+    var matchFilters = {
+        size: parseInt($("#match-q1 :selected").val()),
+        energetic: parseInt($("#match-q2 :selected").val()),
+        dominant: parseInt($("#match-q3 :selected").val())
+    }
 
-    var newMatch = {
-            size: q1Input,
-            energetic: q2Input,
-            dominant: q3Input,
-        };
+    alert("Thank you for submitting your match requirements!");
 
-        alert("Thank you for submitting your match requirements!");
+    var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`
 
-        $("select").val("1");
 
-        $.post("/api/match", newMatch)
-            .then(function(data) {
-            console.log("added new match reqs", data);
+    $.get(queryUrl)
+        .then(function(data) {
+        console.log("added new match filters", data);
 
-        });
+        // res.redirect("/matches");
+    });
+
+    console.log(matchFilters);
+
+    $("select").val("1");
+
 });
 

@@ -7,6 +7,10 @@
     font-size: 135px;
 }
 
+.jumbotron {
+    padding-top: 10px;
+}
+
 body {
     background: ghostwhite;
 }
