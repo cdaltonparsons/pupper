@@ -22,6 +22,7 @@ module.exports = function (app) {
             res.json(pupper)
         });
     });
+}
 
     // PUT route for updating posts
 //     app.put("/api/pups", function (req, res) {
