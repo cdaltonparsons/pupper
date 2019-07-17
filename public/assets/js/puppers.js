@@ -8,38 +8,38 @@ $("#submit").on("click", function(event) {
         var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val();
-        var q1Input = $("#q1 :selected").val();
-        var q2Input = $("#q2 :selected").val();
-        var q3Input = $("#q3 :selected").val();
-        var q4Input = $("#q4 :selected").val();
-        var q5Input = $("#q5 :selected").val();
-        var q6Input = $("#q6 :selected").val();
-        var q7Input = $("#q7 :selected").val();
-        var q8Input = $("#q8 :selected").val();
-        var q9Input = $("#q9 :selected").val(); 
-        var q10Input = $("#q10 :selected").val();
-        var q11Input = $("#q11 :selected").val();
-        var q12Input = $("#q12 :selected").val();
-        var q13Input = $("#q13 :selected").val();
+        var q1Input = parseInt($("#q1 :selected").val());
+        var q2Input = parseInt($("#q2 :selected").val());
+        var q3Input = parseInt($("#q3 :selected").val());
+        var q4Input = parseInt($("#q4 :selected").val());
+        var q5Input = parseInt($("#q5 :selected").val());
+        var q6Input = parseInt($("#q6 :selected").val());
+        var q7Input = parseInt($("#q7 :selected").val());
+        var q8Input = parseInt($("#q8 :selected").val());
+        var q9Input = parseInt($("#q9 :selected").val()); 
+        var q10Input = parseInt($("#q10 :selected").val());
+        var q11Input = parseInt($("#q11 :selected").val());
+        var q12Input = parseInt($("#q12 :selected").val());
+        var q13Input = parseInt($("#q13 :selected").val());
 
         
         var newPupper = {
             ownerName: ownerNameInput,
             dogName: dogNameInput,
             image: dogPhotoInput,
-            q1: q1Input,
-            q2: q2Input,
-            q3: q3Input,
-            q4: q4Input,
-            q5: q5Input,
-            q6: q6Input,
-            q7: q7Input,
-            q8: q8Input,
-            q9: q9Input,
-            q10: q10Input,
-            q11: q11Input,
-            q12: q12Input,
-            q13: q13Input
+            size: q1Input,
+            familyFriendly: q2Input,
+            energetic: q3Input,
+            lazy: q4Input,
+            strangerDanger: q5Input,
+            dogDanger: q6Input,
+            largeDogDanger: q7Input,
+            smallDogDanger: q8Input,
+            dominant: q9Input,
+            doesntShare: q10Input,
+            chaser: q11Input,
+            wrestler: q12Input,
+            allDogFriendly: q13Input
           };
 
         alert("Thank you for submitting your survey!");
@@ -47,26 +47,39 @@ $("#submit").on("click", function(event) {
         $("input").val("");
         $("select").val("1");
 
-        // $.post("/api/friends", newFriend)
-        //     .then(function(data) {
-        //     console.log("added friend", data);
+        $.post("/api/pups", newPupper)
+            .then(function(data) {
+            console.log("added new pupper", data);
 
-        //     $.get(`/api/match/${newFriend.name}`, function(data) {
-        //         console.log(data);
+        });
 
-        //         $("#modal").modal();
-
-        //         if (data) {
-        //             $("#match-photo").attr("src", data.photo);
-        //             $("#title").text("Your Compatible Friend Match Is: " + data.name);
-                    
-        //         } else {
-        //             $("#match-message").text("There are currently no matches.");
-        //         }
-        //     });
-        // });
     } else {
         alert(`Please complete all required fields.`);
         $("input").addClass("border border-danger");
     }
 });
+
+$("#find-match").on("click", function(event) {
+    event.preventDefault();
+
+    var q1Input = parseInt($("#match-q1 :selected").val());
+    var q2Input = parseInt($("#match-q2 :selected").val());
+    var q3Input = parseInt($("#match-q3 :selected").val());
+
+    var newMatch = {
+            size: q1Input,
+            energetic: q2Input,
+            dominant: q3Input,
+        };
+
+        alert("Thank you for submitting your match requirements!");
+
+        $("select").val("1");
+
+        $.post("/api/match", newMatch)
+            .then(function(data) {
+            console.log("added new match reqs", data);
+
+        });
+});
+
