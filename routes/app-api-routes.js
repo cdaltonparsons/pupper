@@ -10,7 +10,7 @@ module.exports = function (app) {
     // })
 
     // Adding to pupper table
-    app.post("/api/pups", function (req, res) {
+    app.post("/api/match", function (req, res) {
         db.Match.create(req.body).then(function (match) {
             res.json(match)
         });
@@ -22,6 +22,7 @@ module.exports = function (app) {
             res.json(pupper)
         });
     });
+};
 
     // PUT route for updating posts
 //     app.put("/api/pups", function (req, res) {
@@ -34,5 +35,4 @@ module.exports = function (app) {
 //             }).then(function (pupper) {
 //                 res.json(pupper);
 //             });
-//     });
-// };
+// }
