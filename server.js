@@ -31,7 +31,6 @@ require("./routes/app-api-routes.js")(app)
 require("./routes/auth-routes.js")(app, passport)
 require("./config/passport/passport.js")(passport, db.User);
 
-
 // Start our server so that it can begin listening to client requests.
 // deleted {force: true} from the () in sync
 db.sequelize.sync({force: true}).then(function(){
