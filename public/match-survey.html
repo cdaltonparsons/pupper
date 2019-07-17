@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootswatch -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-T5jhQKMh96HMkXwqVMSjF3CmLcL1nT9//tCqu9By5XSdj7CwR0r+F3LTzUdfkkQf" crossorigin="anonymous">
     <!-- Google Fonts -->
@@ -13,31 +15,178 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/img/paw.ico" type="image/x-icon">	
     <title>Pupper</title>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    </head>
+</head>
 
 <body>
 
-
 <!-- Survery "header" -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="jumbotron border border-secondary bg-secondary">
-                <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw"></i></h1>                
-                <hr>
-                <h2 class="display-4 text-danger">&nbsp;&nbsp;&nbsp;The Survey</h2>
+<div class="jumbotron jumbotron-fluid bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
+                <br>
+                <h3 class="text-white">Tell us what you're looking for in a pupper playmate.</h3>
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="container">
+<!-- Survey form -->
+<div class="container bg-active text-info">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <h3><i class="fas fa-paw"></i><strong>&nbsp;About Them</strong></h3>
+        </div>
+    </div>
+    <br>
+    <form>
+
     <div class="row">
         <div class="col-12">
-        <!-- Modal -->
+            <h5>Select an answer to each question below.</h5>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q1">I am looking to meet dogs that are:</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q1">
+                <option value="1">Small (under 25 lbs)</option>
+                <option value="2">Medium (between 25-50 lbs)</option>
+                <option value="3">Large (over 50 lbs)</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q2">Do you want to meet family friendly dogs?</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q2">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q3">I want to meet dogs with lots of energy!</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q3">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q4">I want to meet chill dogs.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q4">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q5">I want to help other dogs meet new people.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q5">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q6">I want to help other dogs meet new dogs.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q6">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q7">I want to meet dogs that are larger than my dog.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q7">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q8">I want to meet dogs that are smaller than my dog.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q8">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q9">My dog plays well with dominant dogs.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q9">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q10">I want to meet dogs that like to share their toys.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q10">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+                <label for="match-q11">I want to meet dogs that like to chase other dogs/be chased by other dogs.</label>
+                <select class="form-control form-group col-md-6 match-questions" id="match-q11">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                    <option value="3">Don’t know/Not sure</option>
+                </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q12">I want to meet dogs that love to wrestle with other dogs.</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q12">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+            <label for="match-q13">My dog is great with all other dogs and I would love to meet anyone!</label>
+            <select class="form-control form-group col-md-6 match-questions" id="match-q13">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+                <option value="3">Don’t know/Not sure</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-info" id="find-match">Find Match</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<!-- Modal -->
+<!-- <div class="container bg-secondary">
+    <div class="row">
+        <div class="col-12">
             <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -59,155 +208,23 @@
             </div>
         </div>
     </div>
-</div>
-
-<!-- Survey form -->
-<div class="container bg-secondary text-danger">
-    <div class="row border border-secondary">
-        <div class="col-12">
-            <br>
-            <h3><i class="fas fa-address-card"></i>&nbsp;<strong>About Your Pupper</strong></h3>
-            <form>
-                <div class="form-group">
-                      <label for="name">Your Name (required)</label>
-                      <input type="text" class="form-control" id="owner-name" required>
-                </div>
-                <div class="form-group">
-                      <label for="name">Dog's Name (required)</label>
-                      <input type="text" class="form-control" id="dog-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="photo">Link to Photo (required)</label>
-                    <input type="text" class="form-control" id="photo" required>
-                </div>
-                <hr>
-                <h3><i class="fas fa-question-circle"></i>&nbsp;<strong>Questions</strong></h3>
-                <small>Select from each dropdown menu:</small>
-                <br>
-                <small>True, False, or Unknown.</small>
-                <br>
-                <br>
-                <div class="form-group">
-                    <label for="q1">1) Your mind is always buzzing with unexplored ideas and plans.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q1">
-                        <option value="0">False</option>
-                        <option value="1">True</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q2">2) Generally speaking, you rely more on your experience than your imagination.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q2">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q3">3) You find it easy to stay relaxed and focused even when there is some pressure.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q3">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q4">4) You rarely do something just out of sheer curiosity.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q4">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q5">5) People can rarely upset you.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q5">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q6">6) It is often difficult for you to relate to other people’s feelings.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q6">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q7">7) In a discussion, truth should be more important than people’s sensitivities.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q7">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q8">8) You rarely get carried away by fantasies and ideas.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q8">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q9">9) You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q9">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="q10">10) You feel more energetic after spending time with a group of people.</label>
-                    <select class="form-control form-group col-md-3 questions" id="q10">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-secondary" id="submit">Submit</button>
-            </form>
-            <br>
-        </div>
-    </div>
-</div>
+</div> -->
 
 <footer class="footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-danger justify-content-center">
+                    <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
                         <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
                     </nav>
                 </div>
             </div>
         </div>
- </footer>
+</footer>
 
 
 </body>
 
     <!-- Front End JS -->
     <script src="./assets/js/puppers.js"></script>
-    
 </html>
