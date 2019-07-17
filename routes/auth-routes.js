@@ -1,41 +1,39 @@
-
-var controller = require("../controllers/pupper_controller.js");
-
-module.exports = function (app, passport) {
-  app.get("/signup", controller.signup);
-
-  app.get("/signin", controller.signin);
-
-  app.post(
-    "/signup",
-    passport.authenticate("local-signup", {
-      successRedirect: "/dashboard",
-      failureRedirect: "/signup"
-    })
-  );
-
-  app.get("/dashboard", isLoggedIn, authController.dashboard);
-
-  app.get("/logout", authController.logout);
+var db = require("../models");
+var passport = require("passport-local");
+var path = require("path")
+module.exports = function(app, passport) {
+  // POST routes for signing up and also signing in.
+  // consider adding an alert or something letting the user know why they failed()
+  app.post('/signup', passport.authenticate('local-signup', { successRedirect: '/survey',
+  failureRedirect: '/signup' }));
 
   app.post(
     "/signin",
     passport.authenticate("local-signin", {
-      successRedirect: "/dashboard",
+      successRedirect: "/survey",
       failureRedirect: "/signin"
     })
   );
-=======
-var db = require("../models");
-// var passport = require("passport-local")
-module.exports = function(app, passport) {
 
-app.post(
-  "/signup",
-  passport.authenticate("local-signup", {
-    successRedirect: "../public/main-survey.html",
-    failureRedirect: "../public/signup"
-  })
-);
+  // protected GET routes to ensure user is signed in 
 
+  app.get("/survey", isLoggedIn, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/main-survey.html"))
+  });
+
+  app.get("/match", isLoggedIn, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/match-survey.html"))
+  });
+
+  app.get("/logout", function(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect("/")
+    })
+  });
+
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+
+    res.redirect("/");
+  }
 }
