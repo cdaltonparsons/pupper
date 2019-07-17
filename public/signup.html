@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootswatch -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-T5jhQKMh96HMkXwqVMSjF3CmLcL1nT9//tCqu9By5XSdj7CwR0r+F3LTzUdfkkQf" crossorigin="anonymous">
     <!-- Google Fonts -->
@@ -11,25 +13,78 @@
     <!-- CSS Override -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">	
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/img/paw.ico" type="image/x-icon">	
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">        
     <title>Pupper</title>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Front End JS -->
-    <script src="./assets/js/puppers.js"></script>
+
+
 </head>
 
 <body>
+
+<div class="jumbotron jumbotron-fluid bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
+            </div>
+            <div class="col-1">
+                <a class="btn btn-info btn-lg" id="logout-btn "href="/" role="button">Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-info">
     <form id="signup" name="signup" method="post" action="/signup">
-        <label for="email">Email Address</label>
-        <input class="text" id="email-input" name="email" type="email" />
-        <label for="firstname">Firstname</label>
-        <input name="firstname" id="first-name-input" type="text" />
-        <label for="lastname">Lastname</label>
-        <input name="lastname" id="last-name-input" type="text" />
-        <label for="password">Password</label>
-        <input name="password" id="password-input" type="password" />
-        <input class="btn" type="submit" value="Sign Up" />
-      </form>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <label for="firstname">First Name:</label>
+            <input class="text form-control" name="firstname" id="first-name-input" type="text" />
+            <br>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <label for="lastname">Last Name:</label>
+            <input class="text form-control" name="lastname" id="last-name-input" type="text" />
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <label for="email">Email Address:</label>
+            <input class="text form-control" id="email-input" name="email" type="email" />
+            <br>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <label for="password">Password:</label>
+            <input class="text form-control" name="password" id="password-input" type="password" />
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input class="btn btn-info" type="submit" value="Sign Up" />
+        </div>
+    </div>                
+    </form>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
+                    <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
