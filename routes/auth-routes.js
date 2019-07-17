@@ -1,3 +1,4 @@
+
 var controller = require("../controllers/pupper_controller.js");
 
 module.exports = function (app, passport) {
@@ -24,10 +25,17 @@ module.exports = function (app, passport) {
       failureRedirect: "/signin"
     })
   );
+=======
+var db = require("../models");
+// var passport = require("passport-local")
+module.exports = function(app, passport) {
 
-  function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) return next();
+app.post(
+  "/signup",
+  passport.authenticate("local-signup", {
+    successRedirect: "../public/main-survey.html",
+    failureRedirect: "../public/signup"
+  })
+);
 
-    res.redirect("/signin");
-  }
-};
+}
