@@ -57,7 +57,7 @@ $("#submit").on("click", function(event) {
 
         $("input").val("");
         $("select").val("1");
-        $("file-name").reset();
+        $("#file-name").empty().text("Choose file")
 
     } else {
         $("#error-modal").modal("toggle");
