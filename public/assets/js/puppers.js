@@ -42,7 +42,7 @@ $("#submit").on("click", function(event) {
             allDogFriendly: q13Input
           };
 
-        alert("Thank you for submitting your survey!");
+        $("#survey-modal").modal("toggle");
 
         $("input").val("");
         $("select").val("1");
@@ -51,10 +51,12 @@ $("#submit").on("click", function(event) {
             .then(function(data) {
             console.log("added new pupper", data);
 
+           
+
         });
 
     } else {
-        alert(`Please complete all required fields.`);
+        $("#error-modal").modal("toggle");
         $("input").addClass("border border-danger");
     }
 });
@@ -68,22 +70,23 @@ $("#find-match").on("click", function(event) {
         dominant: parseInt($("#match-q3 :selected").val())
     }
 
-    alert("Thank you for submitting your match requirements!");
-
     var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`
     
 
 
     $.get(queryUrl)
         .then(function(data) {
+
         console.log("added new match filters", data);
 
-        // res.redirect("/matches");
     });
 
     console.log(matchFilters);
 
+    $("#match-modal").modal("toggle");
+
     $("select").val("1");
 
 });
+
 

@@ -20,6 +20,8 @@ module.exports = function (app) {
     // });
 
     // Getting data from tables to show matches on front end
+    app.get("/api/matches/:size/:energetic/:dominant", function(req, res) {
+
 
         app.get("/api/matches/:size/:energetic/:dominant", function(req, res){
             var matchArr = {
