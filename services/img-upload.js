@@ -5,8 +5,8 @@ var multerS3 = require('multer-s3');
 require("dotenv").config();
 
 aws.config.update({
-  secretAccessKey: "SS1/6qavg7qnWiByfEDP+qF+vj8Ml2UURODjWHQE",
-  accessKeyId: "AKIAJKUVKHKA5CJE66WQ",
+  secretAccessKey: process.env.AWS_SECRET,
+  accessKeyId: process.env.AWS_ID,
   region: 'us-east-2'
 });
 
