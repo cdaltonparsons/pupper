@@ -35,6 +35,10 @@ app.get("/failure", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/matches.html"))
   });
 
+  app.get("/contact", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/contact.html"));
+  });
+
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
       res.redirect("/")
