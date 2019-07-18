@@ -34,23 +34,30 @@ module.exports = function (app) {
                 if (data[i].size === req.params.size
                     && data[i].energetic === req.params.energetic
                     && data[i].dominant === req.params.dominant) {
-                    console.log("????????????????????????????????????????????")
-                    matchArr.newArr.push(data[i].ownerName, data[i].dogName, data[i].image);
+                    console.log("meets all matches")
+                    matchArr.newArr.push(data[i].ownerName, data[i].dogName, data[i].image)
                 } else if (data[i].size === req.params.size && data[i].energetic === req.params.energetic) {
-                    console.log("HERE1")
+                    console.log("meets size and energy")
                     matchArr.newArr.push(data[i]);
-                } else if (data[i].size === req.params.size) {
-                    console.log("HERE2")
+                } else if (data[i].size === req.params.size && data[i].dominant == req.params.dominant){
+                    console.log("meets size and dominant")
+                    matchArr.newArr.push(data[i]);
+                }else if (data[i].size === req.params.size) {
+                    console.log("meets size")
                     matchArr.newArr.push(data[i]);
                 } else if (req.params.size === 4 && req.params.energetic === 4 && req.params.dominant === 4) {
+                    console.log('All dogs')
                     matchArr.newArr.push(data[i]);
                 } else if (req.params.size === 4
                     && data[i].energetic === req.params.energetic
                     && data[i].dominant === req.params.dominant) {
+                    console.log('All dogs with match energy and dominant')
                     matchArr.newArr.push(data[i]);
                 } else if (req.params.size === 4 && data[i].energetic === req.params.energetic) {
+                    console.log('All dogs with energy match')
                     matchArr.newArr.push(data[i]);
                 } else if (req.params.size === 4 && data[i].dominant === req.params.dominant) {
+                    console.log('All dogs with dominant match')
                     matchArr.newArr.push(data[i]);
                 } else {
                     //Return this as a 404 error
