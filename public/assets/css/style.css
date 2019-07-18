@@ -22,3 +22,7 @@ body {
 #footer-text {
     font-size: 12px;
 }
+
+#contactbox {
+    width: 400px;
+}
