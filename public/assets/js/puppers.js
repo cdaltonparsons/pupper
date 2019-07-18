@@ -46,11 +46,12 @@ $("#submit").on("click", function(event) {
 
         $.post("/api/pups", newPupper)
             .then(function (data) {
-                console.log("added new pupper", data);
-
-
-
+                
+                    console.log("added new pupper", data);
+                    
+                
             });
+
 
         $("#survey-modal").modal("toggle");
 
@@ -63,6 +64,11 @@ $("#submit").on("click", function(event) {
         $("input").addClass("border border-danger");
     }
 });
+
+// $("#signup-btn").on("click", function (event) {
+//     event.preventDefault();
+//     $("#signup-modal").modal("toggle");
+// })
 
 $("#find-match").on("click", function (event) {
     event.preventDefault();
@@ -87,6 +93,7 @@ $("#find-match").on("click", function (event) {
     console.log(matchFilters);
 
     $("#match-modal").modal("toggle");
+
 
     $("select").val("1");
 

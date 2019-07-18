@@ -40,7 +40,7 @@ require("./config/passport/passport.js")(passport, db.User);
 
 // Start our server so that it can begin listening to client requests.
 // deleted {force: true} from the () in sync
-db.sequelize.sync({force: true}).then(function(){
+db.sequelize.sync().then(function(){
   app.listen(PORT, function() {
     // Log (server-side) when our server has started
     console.log("Server listening on: http://localhost:" + PORT);
