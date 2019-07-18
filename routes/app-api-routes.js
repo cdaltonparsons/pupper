@@ -39,14 +39,9 @@ module.exports = function (app) {
 
 
     app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
-<<<<<<< HEAD
         // var matchArr = {
         //     newArr: []
         // };
-=======
-
-
->>>>>>> 3f4dc03e07bc925eec9e77924eea8ed8db6a1565
         db.Pupper.findAll({
 
             where: {
@@ -55,7 +50,6 @@ module.exports = function (app) {
                 dominant: req.params.dominant
             }
         }).then(function (data) {
-<<<<<<< HEAD
             res.json(data)
             // console.log("this is the data from the get" + data.ownerName + data.dogName + data.image);
 
@@ -82,52 +76,6 @@ module.exports = function (app) {
         // db.Pupper.findAll({
         //     where: {
         //         size: req.params.size
-=======
-            // res.render('index', data);
-            for( i = 0; i < data.length; i++){
-                console.log("this is the data from the get " +" " + data[i].ownerName +" " + data[i].dogName+ " " + data[i].image);
-
-            }
-
-        });
-
-        // db.Pupper.findAll({
-        //     where: {
-        //         size: req.params.size,
-        //         energetic: req.params.energetic
->>>>>>> 3f4dc03e07bc925eec9e77924eea8ed8db6a1565
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
-
-        // db.Pupper.findAll({
-        //     where: {
-<<<<<<< HEAD
-        //         energetic: req.params.energetic,
-=======
-        //         size: req.params.size,
->>>>>>> 3f4dc03e07bc925eec9e77924eea8ed8db6a1565
-        //         dominant: req.params.dominant
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
-<<<<<<< HEAD
-        // db.Pupper.findAll({
-        //     where: {
-        //         dominant: req.params.dominant
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
-        // db.Pupper.findAll({
-
-=======
-
-        // db.Pupper.findAll({
-        //     where: {
-        //         size: req.params.size
         //     }
         // }).then(function (data) {
         //     res.render('index', data)
@@ -150,7 +98,6 @@ module.exports = function (app) {
         // });
         // db.Pupper.findAll({
 
->>>>>>> 3f4dc03e07bc925eec9e77924eea8ed8db6a1565
         //     where: {
         //         energetic: req.params.energetic
         //     }
@@ -252,29 +199,6 @@ module.exports = function (app) {
 
     // });
 }
-
-
-            // var query = {};
-
-            // if (db.Pupper.size === 1) {
-                //     query.size = 
-
-                // } else {
-
-                    // }
-
-                    // db.Pupper.findAll({
-                        //     where: query, 
-                        //     include: [ db.Match ]
-                        // }).then(function(data){
-                            //     res.json(data);
-                            // });
-
-
-                            // db.Pupper.findAll({}).then(function(data){
-                                //     res.json(data);
-                                // });
-
 
 
     // PUT route for updating posts
