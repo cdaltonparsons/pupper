@@ -22,9 +22,6 @@ module.exports = function (app) {
     // Getting data from tables to show matches on front end
     app.get("/api/matches/:size/:energetic/:dominant", function(req, res) {
 
-        console.log(req.params.size);
-        console.log(req.params.energetic);
-        console.log(req.params.dominant);
 
         db.Pupper.findAll({
             where: {
