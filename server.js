@@ -27,6 +27,12 @@ app.use(passport.session());
 // Static directory
 app.use(express.static("public"));
 
+//handlebars 
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 require("./routes/html-routes.js")(app, passport)
 require("./routes/app-api-routes.js")(app)
 require("./routes/auth-routes.js")(app, passport)
