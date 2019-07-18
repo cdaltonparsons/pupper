@@ -29,6 +29,10 @@ module.exports = function(app, passport) {
     res.sendFile(path.join(__dirname, "../public/contact.html"));
   });
 
+  app.get("/contact", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/contact.html"));
+  });
+
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
       res.redirect("/")
