@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-// Initialize file input animaiton for Main Survey's dog photo input field
-bsCustomFileInput.init()
-
 // When submitting the main survey grab form field values and post to the Pupper's table
 $("#submit").on("click", function(event) {
-=======
-$("#submit").on("click", function (event) {
->>>>>>> 096369b42a86c5b3bef507984335919e2cb580bd
     event.preventDefault();
 
     if (!$("input").val() == "") {
@@ -55,13 +48,9 @@ $("#submit").on("click", function (event) {
             .then(function (data) {
                 console.log("added new pupper", data);
 
-<<<<<<< HEAD
-        });
-=======
 
 
             });
->>>>>>> 096369b42a86c5b3bef507984335919e2cb580bd
 
         $("#survey-modal").modal("toggle");
 
@@ -75,13 +64,9 @@ $("#submit").on("click", function (event) {
     }
 });
 
-<<<<<<< HEAD
-// When submitting Match Survey parameters, use them as a filter to search the Pupper's table for matches
-$("#find-match").on("click", function(event) {
-=======
 $("#find-match").on("click", function (event) {
->>>>>>> 096369b42a86c5b3bef507984335919e2cb580bd
     event.preventDefault();
+
 
     var matchFilters = {
         size: parseInt($("#match-q1 :selected").val()),
@@ -90,7 +75,6 @@ $("#find-match").on("click", function (event) {
     }
 
     var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`;
-
 
 
     $.get(queryUrl)
