@@ -42,9 +42,6 @@ module.exports = function (app) {
 
 
     app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
-        var matchArr = {
-            newArr: []
-        };
 
 
         db.Pupper.findAll({
@@ -55,61 +52,64 @@ module.exports = function (app) {
                 dominant: req.params.dominant
             }
         }).then(function (data) {
-            res.render('index', data)
-            // console.log("this is the data from the get" + data.ownerName + data.dogName + data.image);
+            // res.render('index', data);
+            for( i = 0; i < data.length; i++){
+                console.log("this is the data from the get " +" " + data[i].ownerName +" " + data[i].dogName+ " " + data[i].image);
+
+            }
 
         });
 
-        db.Pupper.findAll({
-            where: {
-                size: req.params.size,
-                energetic: req.params.energetic
-            }
-        }).then(function (data) {
-            res.render('index', data)
-        });
+        // db.Pupper.findAll({
+        //     where: {
+        //         size: req.params.size,
+        //         energetic: req.params.energetic
+        //     }
+        // }).then(function (data) {
+        //     res.render('index', data)
+        // });
 
-        db.Pupper.findAll({
-            where: {
-                size: req.params.size,
-                dominant: req.params.dominant
-            }
-        }).then(function (data) {
-            res.render('index', data)
-        });
+        // db.Pupper.findAll({
+        //     where: {
+        //         size: req.params.size,
+        //         dominant: req.params.dominant
+        //     }
+        // }).then(function (data) {
+        //     res.render('index', data)
+        // });
 
-        db.Pupper.findAll({
-            where: {
-                size: req.params.size
-            }
-        }).then(function (data) {
-            res.render('index', data)
-        });
+        // db.Pupper.findAll({
+        //     where: {
+        //         size: req.params.size
+        //     }
+        // }).then(function (data) {
+        //     res.render('index', data)
+        // });
 
-        db.Pupper.findAll({
-            where: {
-                energetic: req.params.energetic,
-                dominant: req.params.dominant
-            }
-        }).then(function (data) {
-            res.render('index', data)
-        });
-        db.Pupper.findAll({
-            where: {
-                dominant: req.params.dominant
-            }
-        }).then(function (data) {
-            res.render('index', data)
-        });
-        db.Pupper.findAll({
+        // db.Pupper.findAll({
+        //     where: {
+        //         energetic: req.params.energetic,
+        //         dominant: req.params.dominant
+        //     }
+        // }).then(function (data) {
+        //     res.render('index', data)
+        // });
+        // db.Pupper.findAll({
+        //     where: {
+        //         dominant: req.params.dominant
+        //     }
+        // }).then(function (data) {
+        //     res.render('index', data)
+        // });
+        // db.Pupper.findAll({
 
-            where: {
-                energetic: req.params.energetic
-            }
-        })
-        db.Pupper.findAll().then(function (data) {
-            res.render('index', data)
-        })
+        //     where: {
+        //         energetic: req.params.energetic
+        //     }
+        // })
+        // db.Pupper.findAll().then(function (data) {
+        //     res.render('index', data)
+        // })
 
         // db.Pupper.findAll().then(function (data) {
         //     console.log('DATA LENGTH ======= ' + data.length);
