@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootswatch -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T5jhQKMh96HMkXwqVMSjF3CmLcL1nT9//tCqu9By5XSdj7CwR0r+F3LTzUdfkkQf" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/fd64f95310.js"></script>
+    <!-- CSS Override -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/img/paw.ico" type="image/x-icon">
+    <title>Pupper Messaging</title>
+     </head> 
+     <body>
+
+    <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h1 class="display-4">Send Message</h1>
+            <br>
+            <input id="name" class="form-control" placeholder="Name">
+            <br>
+            <textarea id=“message” class=”form-control” placeholder="Your Message Here">
+       </textarea>
+            <br>
+            <button id="send" class="btn btn-success">Bork!</button>
+        </div>
+        <div id="messages">
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav
+                        class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
+                        <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn,
+                            Charlie, Claudia, & Jess, 2019</p>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
+</body>
+<!-- Messaging -->
+<script>
+    var socket = io();
+    $(() => {
+        $("#send").click(() => {
+            sendMessage({ name: $("#name").val(), message: $("#message").val() });
+        })
+        getMessages()
+    })
+    socket.on("message", addMessages)
+
+    function addMessages(message) {
+        $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
+    }
+    function getMessages() {
+        $.get("http://localhost:8080/messages", (data) => {
+            data.forEach(addMessages);
+        })
+    }
+    function sendMessage(message) {
+        $.post("http://localhost:8080/messages", message)
+    }
+</script>
+
+</html>

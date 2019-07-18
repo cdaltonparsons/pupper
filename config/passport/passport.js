@@ -72,7 +72,7 @@ module.exports = function(passport, User) {
   passport.use(
     "local-signin",
     new LocalStrategy(
-      {
+      { 
         // by default, local strategy uses username and password, we will override with email
         usernameField: "email",
         passwordField: "password",
@@ -88,12 +88,12 @@ module.exports = function(passport, User) {
           .then(function(user) {
             console.log(user)
             if (!user) {
-              console.log("email does not exists")
+              // console.log("email does not exists")
               return done(null, false, { message: "Email does not exist" });
             }
 
             if (!isValidPassword(user.password, password)) {
-              console.log("incorrect password")
+              // console.log("incorrect password")
               return done(null, false, { message: "Incorrect password." });
             }
 

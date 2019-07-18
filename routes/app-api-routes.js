@@ -5,10 +5,6 @@ var db = require("../models");
 module.exports = function (app) {
 
 
-    // app.get("/api/pups", function(req, res) {
-
-    // })
-
     // Adding to pupper table
     app.post("/api/match", function (req, res) {
         db.Match.create(req.body).then(function (match) {
@@ -22,17 +18,8 @@ module.exports = function (app) {
             res.json(pupper)
         });
     });
+    // app.get("/api/matches", function(req, res) {
+    //     if (req.body.match)
+    // })
 };
-
-    // PUT route for updating posts
-//     app.put("/api/pups", function (req, res) {
-//         db.Pupper.update(
-//             req.body,
-//             {
-//                 where: {
-
-//                 }
-//             }).then(function (pupper) {
-//                 res.json(pupper);
-//             });
-// }
+   
