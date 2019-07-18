@@ -33,7 +33,7 @@ module.exports = function (app) {
             for (i = 0; i < data.length; i++) {
                 if (data[i].size === req.params.size
                     && data[i].energetic === req.params.energetic
-                    && data[i].dominant === req.params.energetic) {
+                    && data[i].dominant === req.params.dominant) {
                     console.log("????????????????????????????????????????????")
                     matchArr.newArr.push(data[i].ownerName, data[i].dogName, data[i].image);
                 } else if (data[i].size === req.params.size && data[i].energetic === req.params.energetic) {
@@ -42,7 +42,15 @@ module.exports = function (app) {
                 } else if (data[i].size === req.params.size) {
                     console.log("HERE2")
                     matchArr.newArr.push(data[i]);
-                } else if(req.params.size === 4) {
+                } else if (req.params.size === 4 && req.params.energetic === 4 && req.params.dominant === 4) {
+                    matchArr.newArr.push(data[i]);
+                } else if (req.params.size === 4
+                    && data[i].energetic === req.params.energetic
+                    && data[i].dominant === req.params.dominant) {
+                    matchArr.newArr.push(data[i]);
+                } else if (req.params.size === 4 && data[i].energetic === req.params.energetic) {
+                    matchArr.newArr.push(data[i]);
+                } else if (req.params.size === 4 && data[i].dominant === req.params.dominant) {
                     matchArr.newArr.push(data[i]);
                 } else {
                     //Return this as a 404 error
@@ -52,7 +60,7 @@ module.exports = function (app) {
             console.log('Matcharr' + matchArr.newArr);
             res.render('index', matchArr);
         });
-        
+
     });
 
     // });
