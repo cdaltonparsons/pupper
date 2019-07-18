@@ -9,7 +9,7 @@ $("#submit").on("click", function(event) {
         var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val();
-        var q1Input = parseInt($("#q1 :selected").val());
+        var q1Input = ($("#q1 :selected").val());
         var q2Input = parseInt($("#q2 :selected").val());
         var q3Input = parseInt($("#q3 :selected").val());
         var q4Input = parseInt($("#q4 :selected").val());
@@ -80,7 +80,7 @@ $("#find-match").on("click", function (event) {
     $.get(queryUrl)
         .then(function (data) {
 
-            console.log("added new match filters", data);
+            console.log(data);
 
         });
 
