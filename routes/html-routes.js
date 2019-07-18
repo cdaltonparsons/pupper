@@ -24,5 +24,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signin.html"));
   });
 
+  app.get("/contact", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/contact.html"));
+  });
 
 };
