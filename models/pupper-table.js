@@ -18,56 +18,56 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.BLOB
       },
       size: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Small"
       },
       familyFriendly: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       energetic: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       lazy: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       strangerDanger: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       dogDanger: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       largeDogDanger: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       }, 
       smallDogDanger: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       dominant: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       doesntShare: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       chaser: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       wrestler: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       },
       allDogFriendly: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        defaultValue: "Yes"
       }
 
     });
