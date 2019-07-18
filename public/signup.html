@@ -13,45 +13,59 @@
     <!-- CSS Override -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">	
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/img/paw.ico" type="image/x-icon">	
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">        
     <title>Pupper</title>
+
+
 </head>
 
 <body>
 
-<!-- Survery "header" -->
 <div class="jumbotron jumbotron-fluid bg-secondary">
     <div class="container">
         <div class="row">
             <div class="col-11">
                 <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
-                <br>
-                <!-- <h3 class="text-white">Tell us about you and your pup.</h3> -->
             </div>
             <div class="col-1">
-                <a class="btn btn-info btn-lg" id="logout-btn "href="/logout" role="button">Logout</a>
+                <a class="btn btn-info btn-lg" id="logout-btn "href="/" role="button">Home</a>
             </div>
         </div>
     </div>
 </div>
 
-
-<!-- Survey form -->
-<form id="signup" name="signup" method="post" action="/signup">
-    <label for="email">Email Address</label>
-    <input class="text" id="email-input" name="email" type="email" />
-    <label for="firstname">Firstname</label>
-    <input name="firstname" id="first-name-input" type="text" />
-    <label for="lastname">Lastname</label>
-    <input name="lastname" id="last-name-input" type="text" />
-    <label for="password">Password</label>
-    <input name="password" id="password-input" type="password" />
-    <input class="btn btn-info" type="submit" value="Sign Up" />
-  </form>
-        
-       
+<div class="container text-info">
+    <form id="signup" name="signup" method="post" action="/signup">
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <label for="firstname">First Name:</label>
+            <input class="text form-control" name="firstname" id="first-name-input" type="text" />
+            <br>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <label for="lastname">Last Name:</label>
+            <input class="text form-control" name="lastname" id="last-name-input" type="text" />
+            <br>
+        </div>
     </div>
-    
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <label for="email">Email Address:</label>
+            <input class="text form-control" id="email-input" name="email" type="email" />
+            <br>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <label for="password">Password:</label>
+            <input class="text form-control" name="password" id="password-input" type="password" />
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input class="btn btn-info" type="submit" value="Sign Up" />
+        </div>
+    </div>                
     </form>
 <br>
 <br>
@@ -59,43 +73,22 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 </div>
 
-<!-- Modal -->
-<div class="container bg-secondary">
-    <div class="row">
-        <div class="col-12">
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h4 class="modal-title" id="title">Sorry, this email is already in use.</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
-                    </div>
-                </div>
-                </div>
+<!--Footer-->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
+                    <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
+                </nav>
             </div>
         </div>
     </div>
-</div>
-
-<footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
-                        <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
-                    </nav>
-                </div>
-            </div>
-        </div>
 </footer>
-
 
 </body>
 

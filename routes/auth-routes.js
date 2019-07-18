@@ -25,6 +25,10 @@ module.exports = function(app, passport) {
     res.sendFile(path.join(__dirname, "../public/match-survey.html"))
   });
 
+  app.get("/matches", isLoggedIn, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/matches.html"))
+  });
+
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
       res.redirect("/")

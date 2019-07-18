@@ -7,6 +7,14 @@
     font-size: 135px;
 }
 
+.jumbotron {
+    padding-top: 10px;
+}
+
+#jumbo-main {
+    padding-top: 75px;
+}
+
 body {
     background: ghostwhite;
 }

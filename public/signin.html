@@ -13,13 +13,14 @@
     <!-- CSS Override -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">	
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/img/paw.ico" type="image/x-icon">	
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">    
     <title>Pupper</title>
 </head>
 
 <body>
 
-<!-- Survery "header" -->
+<!--Header-->
 <div class="jumbotron jumbotron-fluid bg-secondary">
     <div class="container">
         <div class="row">
@@ -27,31 +28,29 @@
                 <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
             </div>
             <div class="col-1">
-                <a class="btn btn-info btn-lg" id="logout-btn "href="/logout" role="button">Logout</a>
+                <a class="btn btn-info btn-lg" id="logout-btn "href="/" role="button">Home</a>
             </div>
         </div>
     </div>
 </div>
 
-
-<!-- Survey form -->
-<div class="container bg-active text-info">
-    <div class="row">
-        <div class="col-md-12">
-            <br>
-            <h3><i class="fas fa-paw"></i><strong>&nbsp;Sign In!</strong></h3>
-        </div>
-    </div>
-    <br>
-    
+<!--Form Fields-->
+<div class="container">
+    <div class="row text-info">
+        <div class="col-md-4 col-xs-12">
             <form id="signin" name="signin" method="post" action="signin">
-                    <label for="email">Email Address</label>
-                    <input class="text" name="email" type="text" />
-                    <label for="password">Password</label>
-                    <input name="password" type="password" />
-                    <input class="btn" type="submit" value="Sign In" />
-                  </form>
-    
+                <label for="email">Email Address:</label>
+                <input class="text form-control" name="email" type="text" />
+                <br>
+                <label for="password">Password:</label>
+                <input class="text form-control" name="password" type="password" />
+                <br>
+                <input class="btn btn-info" type="submit" value="Sign In" />
+            </form>
+        </div>
+    </div>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -60,45 +59,18 @@
 <br>
 </div>
 
-<!-- Modal -->
-<!-- <div class="container bg-secondary">
-    <div class="row">
-        <div class="col-12">
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h4 class="modal-title" id="title">Your Compatible Friend Match Is:</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body mx-auto">
-                        <h5 id="match-message"></h5>
-                        <img id="match-photo" src="#" alt="Your Match Photo" class="img-thumbnail">
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
-                    </div>
-                </div>
-                </div>
+<!--Footer-->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
+                    <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
+                </nav>
             </div>
         </div>
     </div>
-</div> -->
-
-<footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
-                        <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
-                    </nav>
-                </div>
-            </div>
-        </div>
 </footer>
-
 
 </body>
 
