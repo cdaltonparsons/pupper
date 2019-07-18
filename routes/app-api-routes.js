@@ -155,7 +155,7 @@ module.exports = function (app) {
         // });
 
     });
-    
+
     // Nodemailer
 
     app.post("/send", function (req, res) {
@@ -196,7 +196,7 @@ module.exports = function (app) {
                 return console.log(error);
             }
             console.log("Message sent: %s", info.messageId);
-    
+            // res.json("message", "Email has been sent!")
             // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     
         })
