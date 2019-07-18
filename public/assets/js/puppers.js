@@ -9,19 +9,19 @@ $("#submit").on("click", function(event) {
         var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val();
-        var q1Input = ($("#q1 :selected").val());
-        var q2Input = parseInt($("#q2 :selected").val());
-        var q3Input = parseInt($("#q3 :selected").val());
-        var q4Input = parseInt($("#q4 :selected").val());
-        var q5Input = parseInt($("#q5 :selected").val());
-        var q6Input = parseInt($("#q6 :selected").val());
-        var q7Input = parseInt($("#q7 :selected").val());
-        var q8Input = parseInt($("#q8 :selected").val());
-        var q9Input = parseInt($("#q9 :selected").val());
-        var q10Input = parseInt($("#q10 :selected").val());
-        var q11Input = parseInt($("#q11 :selected").val());
-        var q12Input = parseInt($("#q12 :selected").val());
-        var q13Input = parseInt($("#q13 :selected").val());
+        var q1Input = $("#q1 :selected").val();
+        var q2Input = $("#q2 :selected").val();
+        var q3Input = $("#q3 :selected").val();
+        var q4Input = $("#q4 :selected").val();
+        var q5Input = $("#q5 :selected").val();
+        var q6Input = $("#q6 :selected").val();
+        var q7Input = $("#q7 :selected").val();
+        var q8Input = $("#q8 :selected").val();
+        var q9Input = $("#q9 :selected").val();
+        var q10Input = $("#q10 :selected").val();
+        var q11Input = $("#q11 :selected").val();
+        var q12Input = $("#q12 :selected").val();
+        var q13Input = $("#q13 :selected").val();
 
 
         var newPupper = {
@@ -55,7 +55,7 @@ $("#submit").on("click", function(event) {
         $("#survey-modal").modal("toggle");
 
         $("input").val("");
-        $("select").val("1");
+        $("select").val("Yes");
         $("#file-name").empty().text("Choose file")
 
     } else {
@@ -69,9 +69,9 @@ $("#find-match").on("click", function (event) {
 
 
     var matchFilters = {
-        size: parseInt($("#match-q1 :selected").val()),
-        energetic: parseInt($("#match-q2 :selected").val()),
-        dominant: parseInt($("#match-q3 :selected").val())
+        size: $("#match-q1 :selected").val(),
+        energetic: $("#match-q2 :selected").val(),
+        dominant: $("#match-q3 :selected").val()
     }
 
     var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`;
@@ -88,7 +88,7 @@ $("#find-match").on("click", function (event) {
 
     $("#match-modal").modal("toggle");
 
-    $("select").val("1");
+    $("select").val("Yes");
 
 });
 

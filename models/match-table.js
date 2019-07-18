@@ -1,16 +1,16 @@
 module.exports = function (sequelize, DataTypes) {
     var Match = sequelize.define("Match", {
         size: {
-            type: DataTypes.INTEGER,
-            defaultValue: 1
+            type: DataTypes.STRING,
+            defaultValue: "Small"
         },
         energetic: {
-            type: DataTypes.INTEGER,
-            defaultValue: 1
+            type: DataTypes.STRING,
+            defaultValue: "Yes"
         },
         dominant: {
-            type: DataTypes.INTEGER,
-            defaultValue: 1
+            type: DataTypes.STRING,
+            defaultValue: "Yes"
         }
     });
 
