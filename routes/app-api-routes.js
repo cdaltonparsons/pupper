@@ -4,6 +4,21 @@ var db = require("../models");
 // Routes =============================================================
 module.exports = function (app) {
 
+    var upload = require("../services/img-upload.js");
+
+    var singleUpload = upload.single('image');
+
+    app.post('/img-upload', function(req, res) {
+
+        singleUpload(req, res, function(err) {
+      
+          if (err) {
+            return res.status(422).send({errors: [{title: 'File Upload Error', detail: err.message}] });
+          }
+      
+          return res.json({'imageUrl': req.file.location});
+        });
+      });
     // Adding to pupper table
     app.post("/api/pups", function (req, res) {
         db.Pupper.create(req.body).then(function (pupper) {

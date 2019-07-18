@@ -11,6 +11,7 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
+require("dotenv").config();
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
