@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 // Initialize file input animaiton for Main Survey's dog photo input field
 bsCustomFileInput.init()
 
 // When submitting the main survey grab form field values and post to the Pupper's table
 $("#submit").on("click", function(event) {
+=======
+$("#submit").on("click", function (event) {
+>>>>>>> 096369b42a86c5b3bef507984335919e2cb580bd
     event.preventDefault();
 
     if (!$("input").val() == "") {
@@ -20,13 +24,13 @@ $("#submit").on("click", function(event) {
         var q6Input = parseInt($("#q6 :selected").val());
         var q7Input = parseInt($("#q7 :selected").val());
         var q8Input = parseInt($("#q8 :selected").val());
-        var q9Input = parseInt($("#q9 :selected").val()); 
+        var q9Input = parseInt($("#q9 :selected").val());
         var q10Input = parseInt($("#q10 :selected").val());
         var q11Input = parseInt($("#q11 :selected").val());
         var q12Input = parseInt($("#q12 :selected").val());
         var q13Input = parseInt($("#q13 :selected").val());
 
-        
+
         var newPupper = {
             ownerName: ownerNameInput,
             dogName: dogNameInput,
@@ -44,14 +48,20 @@ $("#submit").on("click", function(event) {
             chaser: q11Input,
             wrestler: q12Input,
             allDogFriendly: q13Input
-          };
+        };
 
 
         $.post("/api/pups", newPupper)
-            .then(function(data) {
-            console.log("added new pupper", data);
+            .then(function (data) {
+                console.log("added new pupper", data);
 
+<<<<<<< HEAD
         });
+=======
+
+
+            });
+>>>>>>> 096369b42a86c5b3bef507984335919e2cb580bd
 
         $("#survey-modal").modal("toggle");
 
@@ -65,8 +75,12 @@ $("#submit").on("click", function(event) {
     }
 });
 
+<<<<<<< HEAD
 // When submitting Match Survey parameters, use them as a filter to search the Pupper's table for matches
 $("#find-match").on("click", function(event) {
+=======
+$("#find-match").on("click", function (event) {
+>>>>>>> 096369b42a86c5b3bef507984335919e2cb580bd
     event.preventDefault();
 
     var matchFilters = {
@@ -75,15 +89,16 @@ $("#find-match").on("click", function(event) {
         dominant: parseInt($("#match-q3 :selected").val())
     }
 
-    var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`
+    var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`;
+
 
 
     $.get(queryUrl)
-        .then(function(data) {
+        .then(function (data) {
 
-        console.log("added new match filters", data);
+            console.log("added new match filters", data);
 
-    });
+        });
 
     console.log(matchFilters);
 
