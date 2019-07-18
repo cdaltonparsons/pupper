@@ -1,10 +1,11 @@
+// When submitting the main survey grab form field values and post to the Pupper's table
 $("#submit").on("click", function(event) {
     event.preventDefault();
 
     if (!$("input").val() == "") {
 
         $("input").removeClass("border border-danger");
-
+// need to grab dogPhotoInput to send to the S3
         var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val();
@@ -16,13 +17,13 @@ $("#submit").on("click", function(event) {
         var q6Input = parseInt($("#q6 :selected").val());
         var q7Input = parseInt($("#q7 :selected").val());
         var q8Input = parseInt($("#q8 :selected").val());
-        var q9Input = parseInt($("#q9 :selected").val()); 
+        var q9Input = parseInt($("#q9 :selected").val());
         var q10Input = parseInt($("#q10 :selected").val());
         var q11Input = parseInt($("#q11 :selected").val());
         var q12Input = parseInt($("#q12 :selected").val());
         var q13Input = parseInt($("#q13 :selected").val());
 
-        
+
         var newPupper = {
             ownerName: ownerNameInput,
             dogName: dogNameInput,
@@ -40,20 +41,22 @@ $("#submit").on("click", function(event) {
             chaser: q11Input,
             wrestler: q12Input,
             allDogFriendly: q13Input
-          };
+        };
+
+
+        $.post("/api/pups", newPupper)
+            .then(function (data) {
+                console.log("added new pupper", data);
+
+
+
+            });
 
         $("#survey-modal").modal("toggle");
 
         $("input").val("");
         $("select").val("1");
-
-        $.post("/api/pups", newPupper)
-            .then(function(data) {
-            console.log("added new pupper", data);
-
-           
-
-        });
+        $("#file-name").empty().text("Choose file")
 
     } else {
         $("#error-modal").modal("toggle");
@@ -61,8 +64,9 @@ $("#submit").on("click", function(event) {
     }
 });
 
-$("#find-match").on("click", function(event) {
+$("#find-match").on("click", function (event) {
     event.preventDefault();
+
 
     var matchFilters = {
         size: parseInt($("#match-q1 :selected").val()),
@@ -70,15 +74,15 @@ $("#find-match").on("click", function(event) {
         dominant: parseInt($("#match-q3 :selected").val())
     }
 
-    var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`
+    var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`;
 
 
     $.get(queryUrl)
-        .then(function(data) {
+        .then(function (data) {
 
-        console.log("added new match filters", data);
+            console.log("added new match filters", data);
 
-    });
+        });
 
     console.log(matchFilters);
 

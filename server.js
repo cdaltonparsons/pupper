@@ -11,6 +11,7 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
+require("dotenv").config();
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +27,12 @@ app.use(passport.session());
 // Static directory
 app.use(express.static("public"));
 
+//handlebars 
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 require("./routes/html-routes.js")(app, passport)
 require("./routes/app-api-routes.js")(app)
 require("./routes/auth-routes.js")(app, passport)
@@ -33,13 +40,10 @@ require("./config/passport/passport.js")(passport, db.User);
 
 // Start our server so that it can begin listening to client requests.
 // deleted {force: true} from the () in sync
-db.sequelize.sync().then(function(){
+db.sequelize.sync({force: true}).then(function(){
   app.listen(PORT, function() {
     // Log (server-side) when our server has started
     console.log("Server listening on: http://localhost:" + PORT);
   });
 })
 
-
-
-//inside .env, need TOKEN_SECRET=whatever   ---- must match exactly whenver its used
