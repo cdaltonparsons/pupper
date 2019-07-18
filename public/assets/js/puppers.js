@@ -1,4 +1,5 @@
-$("#submit").on("click", function (event) {
+// When submitting the main survey grab form field values and post to the Pupper's table
+$("#submit").on("click", function(event) {
     event.preventDefault();
 
     if (!$("input").val() == "") {
@@ -66,6 +67,7 @@ $("#submit").on("click", function (event) {
 $("#find-match").on("click", function (event) {
     event.preventDefault();
 
+
     var matchFilters = {
         size: parseInt($("#match-q1 :selected").val()),
         energetic: parseInt($("#match-q2 :selected").val()),
@@ -73,7 +75,6 @@ $("#find-match").on("click", function (event) {
     }
 
     var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`;
-
 
 
     $.get(queryUrl)
