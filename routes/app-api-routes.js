@@ -15,10 +15,12 @@ module.exports = function (app) {
           if (err) {
             return res.status(422).send({errors: [{title: 'File Upload Error', detail: err.message}] });
           }
-      
+    //   this is the img url after it has been successfully uploaded
           return res.json({'imageUrl': req.file.location});
         });
       });
+
+      
     // Adding to pupper table
     app.post("/api/pups", function (req, res) {
         db.Pupper.create(req.body).then(function (pupper) {

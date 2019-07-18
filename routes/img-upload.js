@@ -12,7 +12,7 @@ app.post('/img-upload', function(req, res) {
     if (err) {
       return res.status(422).send({errors: [{title: 'File Upload Error', detail: err.message}] });
     }
-
+    console.log("img uploaded")
     return res.json({'imageUrl': req.file.location});
   });
 });
