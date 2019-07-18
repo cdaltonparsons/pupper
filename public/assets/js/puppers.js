@@ -1,3 +1,7 @@
+// Initialize file input animaiton for Main Survey's dog photo input field
+bsCustomFileInput.init()
+
+// When submitting the main survey grab form field values and post to the Pupper's table
 $("#submit").on("click", function(event) {
     event.preventDefault();
 
@@ -42,18 +46,18 @@ $("#submit").on("click", function(event) {
             allDogFriendly: q13Input
           };
 
-        $("#survey-modal").modal("toggle");
-
-        $("input").val("");
-        $("select").val("1");
 
         $.post("/api/pups", newPupper)
             .then(function(data) {
             console.log("added new pupper", data);
 
-           
-
         });
+
+        $("#survey-modal").modal("toggle");
+
+        $("input").val("");
+        $("select").val("1");
+        $("file-name").reset();
 
     } else {
         $("#error-modal").modal("toggle");
@@ -61,6 +65,7 @@ $("#submit").on("click", function(event) {
     }
 });
 
+// When submitting Match Survey parameters, use them as a filter to search the Pupper's table for matches
 $("#find-match").on("click", function(event) {
     event.preventDefault();
 
