@@ -35,7 +35,7 @@ module.exports = function (app) {
                     && data[i].energetic === req.params.energetic
                     && data[i].dominant === req.params.dominant) {
                     console.log("meets all matches")
-                    matchArr.newArr.push(data[i].ownerName, data[i].dogName, data[i].image)
+                    matchArr.newArr.push(data[i]);
                 } else if (data[i].size === req.params.size && data[i].energetic === req.params.energetic) {
                     console.log("meets size and energy")
                     matchArr.newArr.push(data[i]);
