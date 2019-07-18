@@ -71,6 +71,7 @@ $("#find-match").on("click", function(event) {
     alert("Thank you for submitting your match requirements!");
 
     var queryUrl = `/api/matches/${matchFilters.size}/${matchFilters.energetic}/${matchFilters.dominant}`
+    
 
 
     $.get(queryUrl)

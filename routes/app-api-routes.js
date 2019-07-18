@@ -20,52 +20,52 @@ module.exports = function (app) {
     });
 
     // Getting data from tables to show matches on front end
-    app.get("/api/matches/:size/:energetic/:dominant", function(req, res) {
 
-        console.log(req.params.size);
-        console.log(req.params.energetic);
-        console.log(req.params.dominant);
-
-        db.Pupper.findAll({
-            where: {
-                size: req.params.size,
-                energetic: req.params.energetic,
-                dominant: req.params.dominant
-            }
-        }).then(function(data){
-            res.json(data);
-            console.log(data);
+        app.get("/api/matches/:size/:energetic/:dominant", function(req, res) {
+            
+            console.log(req.params.size);
+            console.log(req.params.energetic);
+            console.log(req.params.dominant);
+            
+            db.Pupper.findAll({
+                
+                where: {
+                    size: req.params.size,
+                    energetic: req.params.energetic,
+                    dominant: req.params.dominant
+                }
+            }).then(function(data){
+                res.json(data);
+                $('#owner').text(data.ownerName);
+                $('#match-name').text(data.dogName);
+                $('#image').attr(data.image);
+                
+            });
+            
+            
+            // var query = {};
+            
+            // if (db.Pupper.size === 1) {
+                //     query.size = 
+                
+                // } else {
+                    
+                    // }
+                    
+                    // db.Pupper.findAll({
+                        //     where: query, 
+                        //     include: [ db.Match ]
+                        // }).then(function(data){
+                            //     res.json(data);
+                            // });
+                            
+                            
+                            // db.Pupper.findAll({}).then(function(data){
+                                //     res.json(data);
+                                // });
+                                
         });
-
-
-        // var query = {};
-
-        // if (db.Pupper.size === 1) {
-        //     query.size = 
-
-        // } else {
-
-        // }
-
-        // db.Pupper.findAll({
-        //     where: query, 
-        //     include: [ db.Match ]
-        // }).then(function(data){
-        //     res.json(data);
-        // });
-
-
-        // db.Pupper.findAll({}).then(function(data){
-        //     res.json(data);
-        // });
-
-    });
-
-
-
-
-
-};
+    }
 
 
     // PUT route for updating posts
