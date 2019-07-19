@@ -9,3 +9,6 @@ INSERT INTO Pupper VALUES ('Jim Dear', 'Tramp', test.jpg, 'Medium', 'Yes', 'No',
 INSERT INTO Pupper VALUES ('George Newton', 'Beethoven', test.jpg, 'Large', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes' );
 INSERT INTO Pupper VALUES ('Matt Turner', 'Lassie', test.jpg, 'Large', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Yes' );
 INSERT INTO Pupper VALUES ('Tom Hanks', 'Hooch', test.jpg, 'Large', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes' );
+
+
+INSERT INTO User VALUES ('')

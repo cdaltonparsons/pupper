@@ -106,31 +106,43 @@
 <br>
 </div>
 
-<!--Completed Modal-->
-<!-- <div class="container bg-active text-info">
+<!--Contact Modal-->
+<div class="container text-info bg-active">
     <div class="row">
         <div class="col-12">
-            <div class="modal fade" id="match-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+            <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h4 class="modal-title" id="title">Success!</h4>
+                    <h4 class="modal-title" id="title"><i class="fas fa-paw"></i>&nbsp;&nbsp;Send a message to your match</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body mx-auto">
-                        <h5 id="match-message">Thanks for telling us about puppers you'd like to meet. Click close to see your matches.</h5>
+                    <div class="modal-body">
+                        <form method="POST" action="send">
+                        <div class="form-group">
+                            <label>Your First Name</label>
+                            <input class="form-control col-md-4" type="text" name="name">
+                            <br>
+                                <label>Your Email Address</label>
+                            <input class="form-control col-md-8" type="email" name="email">
+                            <br>  
+                            <label for="contactbox">Your Message</label>
+                            <textarea class="form-control col-md-12" type="text" name="message" id="contactbox" rows="5">My pup would love to meet yours!</textarea>
+                            <br>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal" id="close">Close</button>
+                        <button class="btn btn-info" type="sumbit" id="send">Bork!</button>
+                    </form>
                     </div>
                 </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <footer class="footer">
         <div class="container-fluid">

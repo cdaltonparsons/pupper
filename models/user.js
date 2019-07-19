@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         password : {type: DataTypes.STRING,allowNull: false }, 
         isLoggedIn: {type: DataTypes.BOOLEAN,defaultValue: false}
 });
+
 User.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
@@ -15,6 +16,8 @@ User.associate = function(models) {
       onDelete: "cascade"
     });
   };
+
+
 	return User;
 
 }

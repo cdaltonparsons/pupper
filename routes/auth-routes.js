@@ -19,6 +19,7 @@ module.exports = function(app, passport) {
 
   app.get("/survey", isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/main-survey.html"))
+    console.log(req.session);
   });
 
   app.get("/match", isLoggedIn, function(req, res) {
