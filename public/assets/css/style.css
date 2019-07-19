@@ -26,3 +26,92 @@ body {
 #contactbox {
     width: 400px;
 }
+
+#logout-btn {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 988px) {
+    #paw {
+        font-size: 105px;
+    }
+
+    #logo {
+        font-size: 120px;
+    }
+    .jumbotron {
+        height: 350px;
+    }
+    #jumbo-main {
+        padding-top: 28px;
+    }
+    
+    .text-white {
+        font-size: 25px;
+    }
+
+    #tellustext {
+        padding-top: 36px;
+    }
+
+    #signupjumbo {
+        height: 285px;
+    }
+
+
+}
+  
+  @media screen and (max-width: 576px) {
+    #logo {
+        font-size: 100px;
+    }
+
+    #paw {
+        font-size: 95px;
+    }
+
+    .lead text-white {
+        font-size: 15px;
+    }
+
+    .jumbotron {
+        height: 400px;
+    }
+
+    .btn-lg {
+        font-size: 13px;
+    }
+}
+
+
+  /* Width at 320px and below */
+  @media screen and (max-width: 320px) {
+    .jumbotron {
+        height: 200px;
+    }
+    .btn-lg {
+        font-size: 10px;
+    }
+    #paw {
+        font-size: 80px;
+    }
+  }
+  
+  /* Width at 168px and below */
+  @media screen and (max-width: 237px) {
+    .btn-lg {
+        margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width: 168px) {
+    .jumbotron {
+        height: 150px;
+    }
+    #paw {
+        font-size: 75px;
+    }
+}
+
+
+  
