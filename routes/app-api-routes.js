@@ -1,31 +1,18 @@
 // Requiring our models
 var db = require("../models");
 var nodemailer = require("nodemailer");
+var Sequelize = require("sequelize");
+var Op = Sequelize.Op
 
 // Routes =============================================================
 module.exports = function (app) {
-
-    var upload = require("../services/img-upload.js");
-
-    var singleUpload = upload.single('image');
-
-    app.post('/img-upload', function(req, res) {
-
-        singleUpload(req, res, function(err) {
-      
-          if (err) {
-            return res.status(422).send({errors: [{title: 'File Upload Error', detail: err.message}] });
-          }
-    //   this is the img url after it has been successfully uploaded
-          return res.json({'imageUrl': req.file.location});
-        });
-      });
-
       
     // Adding to Puppers table
     app.post("/api/pups", function (req, res) {
 
-        // req.body.ownerId = req.session.passport.user;
+        console.log(req.session.passport.user);
+
+        req.body.ownerId = req.session.passport.user;
 
         db.Pupper.create(req.body).then(function (pupper) {
             console.log(req.body);
@@ -39,9 +26,9 @@ module.exports = function (app) {
         db.Pupper.findAll({
 
             where: {
-                // ownerId: {
-                //     $not: req.session.passport.user
-                // },
+                ownerId: {
+                    [Sequelize.Op.not]: req.session.passport.user
+                },
                 size: req.params.size,
                 energetic: req.params.energetic,
                 dominant: req.params.dominant

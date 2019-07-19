@@ -7,9 +7,9 @@ $("#submit").on("click", function(event) {
 
         $("input").removeClass("border border-danger");
 
-        var ownerNameInput = $("#owner-name").val().trim();
+        // var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
-        var dogPhotoInput = $("#dog-photo").val();
+        var dogPhotoInput = $("#dog-photo").val().trim();
         var q1Input = $("#q1 :selected").val();
         var q2Input = $("#q2 :selected").val();
         var q3Input = $("#q3 :selected").val();
@@ -26,7 +26,7 @@ $("#submit").on("click", function(event) {
 
 
         var newPupper = {
-            ownerName: ownerNameInput,
+            // ownerName: ownerNameInput,
             dogName: dogNameInput,
             image: dogPhotoInput,
             size: q1Input,
@@ -56,7 +56,6 @@ $("#submit").on("click", function(event) {
         $("input").val("");
         $("select").val("Yes");
         $("#q1").val("Small");
-        $("#file-name").empty().text("Choose file")
 
     } else {
         $("#error-modal").modal("toggle");
