@@ -39,18 +39,6 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/ownerinfo", function (req, res) {
-       
-        db.User.findOne({
-            where: {
-                id: req.session.passport.user
-            }
-        }).then(function (data) {
-            res.json(data)
-            console.log(data)
-        });
-    });
-
 
         // Nodemailer =========================================
 
