@@ -7,9 +7,9 @@ $("#submit").on("click", function(event) {
 
         $("input").removeClass("border border-danger");
 
-        var ownerNameInput = $("#owner-name").val().trim();
+        // var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
-        var dogPhotoInput = $("#dog-photo").val();
+        var dogPhotoInput = $("#dog-photo").val().trim();
         var q1Input = $("#q1 :selected").val();
         var q2Input = $("#q2 :selected").val();
         var q3Input = $("#q3 :selected").val();
@@ -26,7 +26,6 @@ $("#submit").on("click", function(event) {
 
 
         var newPupper = {
-            ownerName: ownerNameInput,
             dogName: dogNameInput,
             image: dogPhotoInput,
             size: q1Input,
@@ -47,15 +46,10 @@ $("#submit").on("click", function(event) {
 
         $.post("/api/pups", newPupper)
             .then(function (data) {
-<<<<<<< HEAD
                 
-                    console.log("added new pupper", data);
+                console.log("added new pupper", data);
                     
                 
-=======
-                console.log("added new pupper", data);
-
->>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
             });
 
 
@@ -64,7 +58,6 @@ $("#submit").on("click", function(event) {
         $("input").val("");
         $("select").val("Yes");
         $("#q1").val("Small");
-        $("#file-name").empty().text("Choose file")
 
     } else {
         $("#error-modal").modal("toggle");
@@ -72,22 +65,14 @@ $("#submit").on("click", function(event) {
     }
 });
 
-<<<<<<< HEAD
-// $("#signup-btn").on("click", function (event) {
-//     event.preventDefault();
-//     $("#signup-modal").modal("toggle");
-// })
-=======
 // MATCH-SURVEY.HTML -----------------------------------------------------
 $(window).load(function() {
     $("#show-matches").hide();
 });
->>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
 
 $("#find-match").on("click", function (event) {
     event.preventDefault();
 
-    // $("#match-modal").modal("toggle");
 
     var matchFilters = {
         size: $("#match-q1 :selected").val(),
@@ -109,15 +94,17 @@ $("#find-match").on("click", function (event) {
 
             for (var i = 0; i < data.length; i++) {
 
-                var messageButton = $("<a>").addClass("btn btn-secondary btn-sm").attr("id", "contact-btn").attr("role", "button").text("Contact");
-                var image = $("<div>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
+                var contactButton = $("<a>").addClass("btn btn-secondary btn-sm").attr("id", "contact-btn").attr("role", "button").text("Contact");
+                var space = $("<br>")
+                var image = $("<img>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
                 var dog = $("<h4>").addClass("card-title").text(data[i].dogName);
                 var cardBody = $("<div>").addClass("card-body");
                 var owner = $("<div>").addClass("card-header").text(`Owner: ${data[i].ownerName}`)
                 var cardStyleDiv = $("<div>").addClass("card text-white bg-info mb-3").attr("style", "max-width: 20rem;");
                 var column = $("<div>").addClass("col-md-4 col-xs-12");
 
-                $(cardBody).prepend(messageButton);
+                $(cardBody).prepend(contactButton);
+                $(cardBody).prepend(space);
                 $(cardBody).prepend(image);
                 $(cardBody).prepend(dog);
                 $(cardStyleDiv).prepend(cardBody);
@@ -131,13 +118,12 @@ $("#find-match").on("click", function (event) {
 
             $("#contact-btn").on("click", function (event) {
                 console.log("You clicked it!");
-                $("#contact-modal").modal("toggle");
+                $("#bork-box").modal("toggle");
             
             });
 
         });
 
-    // console.log(matchFilters);
 
     $("select").val("Yes");
     $("#match-q1").val("Small");
@@ -146,18 +132,15 @@ $("#find-match").on("click", function (event) {
 
 
 
-<<<<<<< HEAD
-    $("select").val("1");
-=======
-
-
+// CONTACT-MODAL ===================================================
 $("#send").on("click", function (event) {
     event.preventDefault();
 
+    $("input").empty();
     $("input").val("");
     $("#contactbox").empty().text("My pup would love to meet yours!");
-    $("#contact-modal").modal("toggle");
->>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
+    $("#bork-box").modal("toggle");
+
 
 });
 
