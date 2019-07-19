@@ -1,12 +1,17 @@
 // Requiring our models
 var db = require("../models");
 var nodemailer = require("nodemailer");
+var Sequelize = require("sequelize");
+var Op = Sequelize.Op;
 
 // Routes =============================================================
 module.exports = function (app) {
       
     // Adding to Puppers table
     app.post("/api/pups", function (req, res) {
+
+        req.body.ownerId = req.session.passport.user;
+
         db.Pupper.create(req.body).then(function (pupper) {
             console.log(req.body);
             res.json(pupper);
@@ -19,6 +24,9 @@ module.exports = function (app) {
         db.Pupper.findAll({
 
             where: {
+                ownerId: {
+                    [Op.not]: req.session.passport.user
+                },
                 size: req.params.size,
                 energetic: req.params.energetic,
                 dominant: req.params.dominant
@@ -28,6 +36,18 @@ module.exports = function (app) {
 
         });
 
+    });
+
+    app.get("/api/match/:id", function (req, res) {
+
+        db.User.findOne({
+            where: {
+                id: req.session.passport.user
+            }
+        }).then(function(data) {
+            res.json(data)
+            console.log(data)
+        });
     });
 
     // Nodemailer =========================================
