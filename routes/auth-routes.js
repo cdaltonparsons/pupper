@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
   // POST routes for signing up and also signing in.
   // consider adding an alert or something letting the user know why they failed()
   app.post('/signup', passport.authenticate("local-signup", { successRedirect: "/survey",
-  failureRedirect: "/failure"}));
+  failureRedirect: "/signup"}));
 
   app.post(
     "/signin",
@@ -17,10 +17,10 @@ module.exports = function(app, passport) {
   );
 
   // protected GET routes to ensure user is signed in 
-app.get("/failure", function(req, res) {
-  var modal = Document.getElementById("signup-modal")
-  modal.modal("toggle")
-})
+// app.get("/failure", function(req, res) {
+//   var modal = document.getElementById("signup-modal")
+//   modal.modal("toggle")
+// })
 
 
   app.get("/survey", isLoggedIn, function(req, res) {
