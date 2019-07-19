@@ -117,7 +117,6 @@ $("#find-match").on("click", function (event) {
             $("#show-matches").show();
 
             $(".contact-btn").on("click", function (event) {
-                console.log("You clicked it!");
                 $("#bork-box").modal("toggle");
 
                 var queryURL2 = `/api/match/${data[0].id}`

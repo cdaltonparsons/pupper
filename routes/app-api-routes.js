@@ -38,8 +38,8 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/match/:id", function (req, res) {
-
+    app.get("/api/ownerinfo", function (req, res) {
+       
         db.User.findOne({
             where: {
                 id: req.session.passport.user
