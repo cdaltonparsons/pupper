@@ -22,7 +22,7 @@ module.exports = function (app) {
       });
 
       
-    // Adding to pupper table
+    // Adding to Puppers table
     app.post("/api/pups", function (req, res) {
         db.Pupper.create(req.body).then(function (pupper) {
             console.log(req.body);
@@ -37,11 +37,9 @@ module.exports = function (app) {
     //     });
     // });
 
-
+    // Getting matches from Puppers table based on filters
     app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
-        // var matchArr = {
-        //     newArr: []
-        // };
+       
         db.Pupper.findAll({
 
             where: {
@@ -51,107 +49,28 @@ module.exports = function (app) {
             }
         }).then(function (data) {
             res.json(data)
-            // console.log("this is the data from the get" + data.ownerName + data.dogName + data.image);
 
         });
 
-        // db.Pupper.findAll({
-        //     where: {
-        //         size: req.params.size,
-        //         energetic: req.params.energetic
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
+    });
 
-        // db.Pupper.findAll({
-        //     where: {
-        //         size: req.params.size,
-        //         dominant: req.params.dominant
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
 
-        // db.Pupper.findAll({
-        //     where: {
-        //         size: req.params.size
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
+    app.get("/api/images/:id", function (req, res) {
 
-        // db.Pupper.findAll({
-        //     where: {
-        //         energetic: req.params.energetic,
-        //         dominant: req.params.dominant
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
-        // db.Pupper.findAll({
-        //     where: {
-        //         dominant: req.params.dominant
-        //     }
-        // }).then(function (data) {
-        //     res.render('index', data)
-        // });
-        // db.Pupper.findAll({
-
-        //     where: {
-        //         energetic: req.params.energetic
-        //     }
-        // })
-        // db.Pupper.findAll().then(function (data) {
-        //     res.render('index', data)
-        // })
-
-        // db.Pupper.findAll().then(function (data) {
-        //     console.log('DATA LENGTH ======= ' + data.length);
-        //     for (i = 0; i < data.length; i++) {
-        //     console.log('Size ' + "data.size " + data[i].size +" req.params " + req.params.size);
-        //     console.log('Energetic ' + "data.energetic " + data[i].energetic + 'req.params ' + req.params.energetic);
-        //     console.log('Dominant ' + "data.dominant " + data[i].dominant + "req.params " + req.params.dominant)
-        //         if (data[i].size === req.params.size
-        //             && data[i].energetic === req.params.energetic
-        //             && data[i].dominant === req.params.dominant) {
-        //             console.log("meets all matches")
-        //             matchArr.newArr.push(data[i]);
-        //         } else if (data[i].size === req.params.size && data[i].energetic === req.params.energetic) {
-        //             console.log("meets size and energy")
-        //             matchArr.newArr.push(data[i]);
-        //         } else if (data[i].size === req.params.size && data[i].dominant == req.params.dominant){
-        //             console.log("meets size and dominant")
-        //             matchArr.newArr.push(data[i]);
-        //         }else if (data[i].size === req.params.size) {
-        //             console.log("meets size")
-        //             matchArr.newArr.push(data[i]);
-        //         } else if (req.params.size === 4 && req.params.energetic === 3 && req.params.dominant === 3) {
-        //             console.log('All dogs')
-        //             matchArr.newArr.push(data[i]);
-        //         } else if (req.params.size === 4
-        //             && data[i].energetic === req.params.energetic
-        //             && data[i].dominant === req.params.dominant) {
-        //             console.log('All dogs with match energy and dominant')
-        //             matchArr.newArr.push(data[i]);
-        //         } else if (req.params.size === 4 && data[i].energetic === req.params.energetic) {
-        //             console.log('All dogs with energy match')
-        //             matchArr.newArr.push(data[i]);
-        //         } else if (req.params.size === 4 && data[i].dominant === req.params.dominant) {
-        //             console.log('All dogs with dominant match')
-        //             matchArr.newArr.push(data[i]);
-        //         } else {
-        //             //Return this as a 404 error
-        //             console.log("no matches");
-        //         }
-        //     }
-        //     console.log('Matcharr' + matchArr.newArr);
-        //     res.render('index', matchArr);
-        // });
+        db.Pupper.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (data) {
+            console.log(data.image);
+            res.writeHead(200, {"Content-Type": "image/jpeg"});
+            res.end(data.image, "binary");
+            
+        });
 
     });
 
-    // Nodemailer
+    // Nodemailer =========================================
 
     app.post("/send", function (req, res) {
         var output = `
@@ -197,7 +116,7 @@ module.exports = function (app) {
         })
     });
 
-    // });
+
 }
 
 

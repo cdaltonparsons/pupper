@@ -57,6 +57,7 @@ $("#submit").on("click", function(event) {
 
         $("input").val("");
         $("select").val("Yes");
+        $("#q1").val("Small");
         $("#file-name").empty().text("Choose file")
 
     } else {
@@ -73,7 +74,7 @@ $(window).load(function() {
 $("#find-match").on("click", function (event) {
     event.preventDefault();
 
-    $("#match-modal").modal("toggle");
+    // $("#match-modal").modal("toggle");
 
     var matchFilters = {
         size: $("#match-q1 :selected").val(),
@@ -127,6 +128,7 @@ $("#find-match").on("click", function (event) {
    
 
     $("select").val("Yes");
+    $("#match-q1").val("Small");
 
 });
 
