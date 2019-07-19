@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
     var Pupper = sequelize.define("Pupper", {
-        ownerName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
+      ownerName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [1]
+        }
+      },
       dogName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -77,6 +77,7 @@ module.exports = function(sequelize, DataTypes) {
         onDelete: "cascade"
       });
     };
+
 
     return Pupper;
     

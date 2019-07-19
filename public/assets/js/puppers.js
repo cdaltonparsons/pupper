@@ -6,7 +6,7 @@ $("#submit").on("click", function(event) {
     if (!$("input").val() == "") {
 
         $("input").removeClass("border border-danger");
-// need to grab dogPhotoInput to send to the S3
+
         var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val();
@@ -49,14 +49,13 @@ $("#submit").on("click", function(event) {
             .then(function (data) {
                 console.log("added new pupper", data);
 
-
-
             });
 
         $("#survey-modal").modal("toggle");
 
         $("input").val("");
         $("select").val("Yes");
+        $("#q1").val("Small");
         $("#file-name").empty().text("Choose file")
 
     } else {
@@ -73,7 +72,7 @@ $(window).load(function() {
 $("#find-match").on("click", function (event) {
     event.preventDefault();
 
-    $("#match-modal").modal("toggle");
+    // $("#match-modal").modal("toggle");
 
     var matchFilters = {
         size: $("#match-q1 :selected").val(),
@@ -95,7 +94,7 @@ $("#find-match").on("click", function (event) {
 
             for (var i = 0; i < data.length; i++) {
 
-                var messageButton = $("<a>").addClass("btn btn-secondary btn-sm").attr("href", "/contact").attr("role", "button").text("Contact");
+                var messageButton = $("<a>").addClass("btn btn-secondary btn-sm").attr("id", "contact-btn").attr("role", "button").text("Contact");
                 var image = $("<div>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
                 var dog = $("<h4>").addClass("card-title").text(data[i].dogName);
                 var cardBody = $("<div>").addClass("card-body");
@@ -113,20 +112,33 @@ $("#find-match").on("click", function (event) {
 
             }
 
-
             $("#show-matches").show();
 
-
-
-
+            $("#contact-btn").on("click", function (event) {
+                console.log("You clicked it!");
+                $("#contact-modal").modal("toggle");
+            
+            });
 
         });
 
     // console.log(matchFilters);
 
-   
-
     $("select").val("Yes");
+    $("#match-q1").val("Small");
+
+});
+
+
+
+
+
+$("#send").on("click", function (event) {
+    event.preventDefault();
+
+    $("input").val("");
+    $("#contactbox").empty().text("My pup would love to meet yours!");
+    $("#contact-modal").modal("toggle");
 
 });
 
