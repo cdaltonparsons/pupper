@@ -1,11 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Pupper = sequelize.define("Pupper", {
-      ownerName: {
-        type: DataTypes.STRING,
+      ownerId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        validate: {
-            len: [1]
-        }
       },
       dogName: {
         type: DataTypes.STRING,
@@ -15,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       image: {
-        type: DataTypes.BLOB
+        type: DataTypes.STRING,
       },
       size: {
         type: DataTypes.STRING,
@@ -72,14 +69,13 @@ module.exports = function(sequelize, DataTypes) {
 
     });
 
-    Pupper.associate = function(models) {
+    Pupper.associate = function (models) {
       Pupper.belongsTo(models.User, {
         foreignKey: {
           allowNull: false
         }
       });
     };
-
 
     return Pupper;
     

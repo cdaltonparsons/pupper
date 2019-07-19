@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootswatch -->
@@ -27,12 +28,12 @@
 <div class="jumbotron jumbotron-fluid bg-secondary">
     <div class="container">
         <div class="row">
-            <div class="col-11">
+            <div class="col-md-10 col-sm-12">
                 <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
                 <br>
                 <h3 class="text-white">Tell us what you're looking for in a pupper playmate.</h3>
             </div>
-            <div class="col-1">
+            <div class="col-md-2 col-sm-12">
                 <a class="btn btn-info btn-lg" id="logout-btn "href="/logout" role="button">Logout</a>
             </div>
         </div>
@@ -110,11 +111,11 @@
 <div class="container text-info bg-active">
     <div class="row">
         <div class="col-12">
-            <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+            <div class="modal fade" id="bork-box" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h4 class="modal-title" id="title"><i class="fas fa-paw"></i>&nbsp;&nbsp;Send a message to your match</h4>
+                    <h4 class="modal-title" id="title"><i class="fas fa-paw"></i>&nbsp;&nbsp;Bork at your match</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -125,10 +126,10 @@
                             <label>Your First Name</label>
                             <input class="form-control col-md-4" type="text" name="name">
                             <br>
-                                <label>Your Email Address</label>
+                            <label>Your Email Address</label>
                             <input class="form-control col-md-8" type="email" name="email">
                             <br>  
-                            <label for="contactbox">Your Message</label>
+                            <label for="contactbox">Your Bork</label>
                             <textarea class="form-control col-md-12" type="text" name="message" id="contactbox" rows="5">My pup would love to meet yours!</textarea>
                             <br>
                         </div>
