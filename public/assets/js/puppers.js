@@ -9,7 +9,6 @@ $("#submit").on("click", function (event) {
 
         $("input").removeClass("border border-danger");
 
-        // var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val().trim();
         var q1Input = $("#q1 :selected").val();
@@ -117,6 +116,15 @@ $("#find-match").on("click", function (event) {
 
             }
 
+            var newButton = $("<a>").addClass("btn btn-info btn-lg text-white").attr("id", "find-more").attr("role", "button").text("Find More Matches");
+            var newCol = $("<div>").addClass("col-12");
+            var newRow = $("<div>").addClass("row");
+
+            $("#show-matches").append(newRow);
+            $(newRow).append(newCol);
+            $(newCol).append(newButton);
+            
+
             $("#show-matches").show();
 
             $(".contact-btn").on("click", function () {
@@ -125,6 +133,13 @@ $("#find-match").on("click", function (event) {
                 $("#bork-box").modal("toggle");
 
             });
+
+            $("#find-more").on("click", function() {
+                $("#show-matches").empty();
+                $("#show-matches").hide();
+                $("#filters").show();
+            });
+            
             // CONTACT-MODAL ===================================================
             $("#send").on("click", function (event) {
                 event.preventDefault();
@@ -149,6 +164,7 @@ $("#find-match").on("click", function (event) {
 
         });
 
+    
 
     $("select").val("Yes");
     $("#match-q1").val("Small");
