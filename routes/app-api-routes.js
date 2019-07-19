@@ -6,7 +6,7 @@ var Op = Sequelize.Op
 
 // Routes =============================================================
 module.exports = function (app) {
-      
+
     // Adding to Puppers table
     app.post("/api/pups", function (req, res) {
 
@@ -20,7 +20,7 @@ module.exports = function (app) {
 
     // Getting matches from Puppers table based on filters
     app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
-       
+
         db.Pupper.findAll({
 
             where: {
@@ -39,66 +39,55 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/ownerinfo", function (req, res) {
-       
-    //     db.User.findOne({
-    //         where: {
-    //             id: ownerId
-    //         },
-    //         include: [db.Pupper]
-    //     }).then(function(data){
-    //         res.json(data);
-    //     });
 
-    });
+        // Nodemailer =========================================
 
-    // Nodemailer =========================================
-
-    app.post("/send", function (req, res) {
-    // app.post("/send/:id", function (req, res) {
-        var output = `
+        app.post("/send", function (req, res) {
+            // app.post("/send/:id", function (req, res) {
+            var output = `
         <p> A match has requested to contact you! </p>
         <h3> Contact Details: </h3>
         <ul> 
         <li> Name: ${req.body.name} </li>
-        <li> Email: ${req.body.email} </li>
+        <li> Email: ${req.body.senderEmail} </li>
         </ul>
         <h3> Message: </h3>
         <p> ${req.body.message} </p>
         `;
 
-        const transporter = nodemailer.createTransport({
-            // host: 'gmail',
-            host: 'smtp.gmail.com',
-            port: 465,
-            // port: 587,
-            auth: {
-                user: 'pupperconnectionapp@gmail.com',
-                pass: 'PupperApp1!'
-            }
+            const transporter = nodemailer.createTransport({
+                // host: 'gmail',
+                host: 'smtp.gmail.com',
+                port: 465,
+                // port: 587,
+                auth: {
+                    user: 'pupperconnectionapp@gmail.com',
+                    pass: 'PupperApp1!'
+                }
+            });
+            console.log(req.body)
+            // send mail with defined transport object
+            let mailOptions = {
+                from: '"Pupper Contact" <pupperconnectionapp@gmail.com>', // sender address
+                // to: "jessicadawnsewell@gmail.com", // list of receivers
+                to: req.body.email,
+                subject: "Pupper Contact Request", // Subject line
+                text: "Hello friend?", // plain text body
+                html: output // html body from above
+            };
+            console.log(mailOptions);
+            transporter.sendMail(mailOptions, (error, info) => {
+                console.log("hey")
+                if (error) {
+                    return console.log(error);
+                }
+                console.log("Message sent: %s", info.messageId);
+                // res.json("message", "Email has been sent!")
+                // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+            })
         });
 
-        // send mail with defined transport object
-        let mailOptions = {
-            from: '"Pupper Contact" <pupperconnectionapp@gmail.com>', // sender address
-            to: "jessicadawnsewell@gmail.com", // list of receivers
-            subject: "Pupper Contact Request", // Subject line
-            text: "Hello world?", // plain text body
-            html: output // html body from above
-        };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            console.log("hey")
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Message sent: %s", info.messageId);
-            // res.json("message", "Email has been sent!")
-            // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    
-        })
-    });
-
-
-}
+    }
 
