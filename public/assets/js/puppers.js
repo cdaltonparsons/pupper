@@ -47,15 +47,8 @@ $("#submit").on("click", function(event) {
 
         $.post("/api/pups", newPupper)
             .then(function (data) {
-<<<<<<< HEAD
-                
-                    console.log("added new pupper", data);
-                    
-                
-=======
                 console.log("added new pupper", data);
 
->>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
             });
 
 
@@ -72,17 +65,10 @@ $("#submit").on("click", function(event) {
     }
 });
 
-<<<<<<< HEAD
-// $("#signup-btn").on("click", function (event) {
-//     event.preventDefault();
-//     $("#signup-modal").modal("toggle");
-// })
-=======
 // MATCH-SURVEY.HTML -----------------------------------------------------
 $(window).load(function() {
     $("#show-matches").hide();
 });
->>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
 
 $("#find-match").on("click", function (event) {
     event.preventDefault();
@@ -146,9 +132,6 @@ $("#find-match").on("click", function (event) {
 
 
 
-<<<<<<< HEAD
-    $("select").val("1");
-=======
 
 
 $("#send").on("click", function (event) {
@@ -157,7 +140,6 @@ $("#send").on("click", function (event) {
     $("input").val("");
     $("#contactbox").empty().text("My pup would love to meet yours!");
     $("#contact-modal").modal("toggle");
->>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
 
 });
 

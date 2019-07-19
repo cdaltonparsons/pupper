@@ -22,7 +22,7 @@ module.exports = function (app) {
                 size: req.params.size,
                 energetic: req.params.energetic,
                 dominant: req.params.dominant
-            }
+            }, include: [db.User]
         }).then(function (data) {
             res.json(data)
 
