@@ -73,7 +73,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Pupper.associate = function(models) {
-      Pupper.hasMany(models.Match, {
+      Pupper.belongsTo(models.User, {
         onDelete: "cascade"
       });
     };

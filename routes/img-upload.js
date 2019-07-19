@@ -7,7 +7,7 @@ var upload = require("../services/img-upload.js");
 var singleUpload = upload.single('image');
 
 app.post('/img-upload', function(req, res) {
-    var url = 
+    
   singleUpload(req, res, function(err) {
 
     if (err) {
