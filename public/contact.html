@@ -22,61 +22,72 @@
 </head>
 
 <body>
-    <!-- "header" -->
-    <div class="jumbotron jumbotron-fluid bg-secondary">
-        <div class="container">
-            <div class="row">
-                <div class="col-11">
-                    <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
-                    <br>
-                    <h3 class="text-white">Tell us what you're looking for in a pupper playmate.</h3>
-                </div>
-                <div class="col-1">
-                    <a class="btn btn-info btn-lg" id="logout-btn " href="/logout" role="button">Logout</a>
-                </div>
+<!-- Header -->
+<div class="jumbotron jumbotron-fluid bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <h1 class="display-1 text-white" id="logo">pupper&nbsp;<i class="fas fa-paw" id="paw"></i></h1>
+                <br>
+                <h3 class="text-white">Tell us what you're looking for in a pupper playmate.</h3>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-info btn-lg" id="logout-btn " href="/match" role="button">Back</a>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-info btn-lg" id="logout-btn " href="/logout" role="button">Logout</a>
             </div>
         </div>
     </div>
+</div>
 
-
-    <div class="card">
-        <h4>Send a message to your match!</h4>
-        <br>
-        <div class="contact">
-
-            <form method="POST" action="send">
-                <p>
+<!-- Message Div -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 col-sm-12">
+            <div class="card text-white bg-info mb-3">
+                <form method="POST" action="send">
+                <div class="card-header"><h3><i class="fas fa-paw"></i>&nbsp;&nbsp;Send a message to your match</h3></div>
+                <div class="card-body form-group">
                     <label>Your Name</label>
-                    <input type="text" name="name">
-                </p>
-                <p>
-                    <label>Your Email Address</label>
-                    <input type="email" name="email">
-                </p>
-                <p>
-                    <label>Your Message</label>
-                    <input type="text" name="message" id= "contactbox" placeholder="My pup would love to meet yours!">
-                </p>
-                <button type="sumbit" id="send" class="btn btn-success">Bork!</button>
-            </form>
-        </div>
-
-    </div>
-
-
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <nav
-                        class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
-                        <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn,
-                            Charlie, Claudia, & Jess, 2019</p>
-                    </nav>
+                    <input class="form-control col-md-5 col-sm-12" type="text" name="name">
+                    <br>
+                     <label>Your Email Address</label>
+                    <input class="form-control col-md-5 col-sm-12" type="email" name="email">
+                    <br>  
+                    <label for="contactbox">Your Message</label>
+                    <textarea class="form-control col-md-9 col-sm-12" type="text" name="message" id="contactbox" rows="5">My pup would love to meet yours!</textarea>
+                    <br>
+                    <button class="btn btn-secondary" type="sumbit" id="send">Bork!</button>
+                    </div>
                 </div>
+            </form>
             </div>
         </div>
-    </footer>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar fixed-bottom navbar-light bg-secondary border-top border-info justify-content-center">
+                    <p class="navbar-brand text-center text-white" id="footer-text">Copyright©&nbsp;&nbsp;Carolyn, Charlie, Claudia, & Jess, 2019</p>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 
