@@ -46,9 +46,12 @@ $("#submit").on("click", function(event) {
 
         $.post("/api/pups", newPupper)
             .then(function (data) {
+                
                 console.log("added new pupper", data);
-
+                    
+                
             });
+
 
         $("#survey-modal").modal("toggle");
 
@@ -129,7 +132,6 @@ $("#find-match").on("click", function (event) {
 
 
 
-
 // CONTACT-MODAL ===================================================
 $("#send").on("click", function (event) {
     event.preventDefault();
@@ -138,6 +140,7 @@ $("#send").on("click", function (event) {
     $("input").val("");
     $("#contactbox").empty().text("My pup would love to meet yours!");
     $("#bork-box").modal("toggle");
+
 
 });
 
