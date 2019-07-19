@@ -6,7 +6,7 @@ $("#submit").on("click", function(event) {
     if (!$("input").val() == "") {
 
         $("input").removeClass("border border-danger");
-// need to grab dogPhotoInput to send to the S3
+
         var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val();
@@ -48,8 +48,6 @@ $("#submit").on("click", function(event) {
         $.post("/api/pups", newPupper)
             .then(function (data) {
                 console.log("added new pupper", data);
-
-
 
             });
 
@@ -129,6 +127,16 @@ $("#find-match").on("click", function (event) {
 
     $("select").val("Yes");
     $("#match-q1").val("Small");
+
+});
+
+
+// CONTACT.HTML ===============================================================
+$("#send").on("click", function (event) {
+    event.preventDefault();
+
+    $("input").val("");
+    $("#contactbox").empty().text("My pup would love to meet yours!");
 
 });
 

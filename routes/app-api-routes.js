@@ -30,13 +30,6 @@ module.exports = function (app) {
         });
     });
 
-    // Adding to match table
-    // app.post("/api/match", function (req, res) {
-    //     db.Match.create(req.body).then(function (match) {
-    //         res.json(match)
-    //     });
-    // });
-
     // Getting matches from Puppers table based on filters
     app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
        
@@ -50,22 +43,6 @@ module.exports = function (app) {
         }).then(function (data) {
             res.json(data)
 
-        });
-
-    });
-
-
-    app.get("/api/images/:id", function (req, res) {
-
-        db.Pupper.findOne({
-            where: {
-                id: req.params.id
-            }
-        }).then(function (data) {
-            console.log(data.image);
-            res.writeHead(200, {"Content-Type": "image/jpeg"});
-            res.end(data.image, "binary");
-            
         });
 
     });
@@ -119,16 +96,3 @@ module.exports = function (app) {
 
 }
 
-
-    // PUT route for updating posts
-//     app.put("/api/pups", function (req, res) {
-//         db.Pupper.update(
-//             req.body,
-//             {
-//                 where: {
-
-//                 }
-//             }).then(function (pupper) {
-//                 res.json(pupper);
-//             });
-// }
