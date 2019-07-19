@@ -99,7 +99,7 @@ $("#find-match").on("click", function (event) {
                 var image = $("<img>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
                 var dog = $("<h4>").addClass("card-title").text(data[i].dogName);
                 var cardBody = $("<div>").addClass("card-body");
-                var owner = $("<div>").addClass("card-header").text(`Owner: ${data[i].ownerName}`)
+                var owner = $("<div>").addClass("card-header").text(`Owner: ${data[i].User.firstname}`)
                 var cardStyleDiv = $("<div>").addClass("card text-white bg-info mb-3").attr("style", "max-width: 20rem;");
                 var column = $("<div>").addClass("col-md-4 col-xs-12");
 
