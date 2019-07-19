@@ -30,7 +30,7 @@ module.exports = function (app) {
                 size: req.params.size,
                 energetic: req.params.energetic,
                 dominant: req.params.dominant
-            }, include: [db.User]
+            }
         }).then(function (data) {
             res.json(data)
 
@@ -38,18 +38,18 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
+    // app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
        
-        db.User.findOne({
-            where: {
-                id: ownerId
-            },
-            include: [db.Pupper]
-        }).then(function(data){
-            res.json(data);
-        });
+    //     db.User.findOne({
+    //         where: {
+    //             id: ownerId
+    //         },
+    //         include: [db.Pupper]
+    //     }).then(function(data){
+    //         res.json(data);
+    //     });
 
-    });
+    // });
 
     // Nodemailer =========================================
 
