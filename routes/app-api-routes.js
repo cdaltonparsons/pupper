@@ -39,19 +39,6 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/ownerinfo", function (req, res) {
-       
-        db.User.findOne({
-            where: {
-                id: ownerId
-            },
-            include: [db.Pupper]
-        }).then(function(data){
-            res.json(data);
-        });
-
-    });
-
     // Nodemailer =========================================
 
     app.post("/send", function (req, res) {

@@ -7,7 +7,6 @@ $("#submit").on("click", function(event) {
 
         $("input").removeClass("border border-danger");
 
-        // var ownerNameInput = $("#owner-name").val().trim();
         var dogNameInput = $("#dog-name").val().trim();
         var dogPhotoInput = $("#dog-photo").val().trim();
         var q1Input = $("#q1 :selected").val();
@@ -118,6 +117,7 @@ $("#find-match").on("click", function (event) {
 
             $(".contact-btn").on("click", function (event) {
                 $("#bork-box").modal("toggle");
+                
             
             });
 
