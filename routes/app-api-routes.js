@@ -36,6 +36,10 @@ module.exports = function (app) {
 
         });
 
+    });
+
+    app.get("/api/matches/:size/:energetic/:dominant", function (req, res) {
+       
         db.User.findOne({
             where: {
                 id: ownerId
