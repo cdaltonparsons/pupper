@@ -1,6 +1,8 @@
+let email;
+
 // MAIN-SURVEY.HTML ------------------------------
 // When submitting the main survey grab form field values and post to the Pupper's table
-$("#submit").on("click", function(event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
 
     if (!$("input").val() == "") {
@@ -46,10 +48,10 @@ $("#submit").on("click", function(event) {
 
         $.post("/api/pups", newPupper)
             .then(function (data) {
-                
+
                 console.log("added new pupper", data);
-                    
-                
+
+
             });
 
 
@@ -66,7 +68,7 @@ $("#submit").on("click", function(event) {
 });
 
 // MATCH-SURVEY.HTML -----------------------------------------------------
-$(window).load(function() {
+$(window).load(function () {
     $("#show-matches").hide();
 });
 
@@ -93,8 +95,9 @@ $("#find-match").on("click", function (event) {
             $("#filters").hide();
 
             for (var i = 0; i < data.length; i++) {
+                console.log(data[i].User.email);
 
-                var contactButton = $("<a>").addClass("btn btn-secondary btn-sm contact-btn").attr("role", "button").text("Contact");
+                var contactButton = $("<a>").addClass("btn btn-secondary btn-sm contact-btn").attr("role", "button").text("Contact").attr("data-email", data[i].User.email);
                 var space = $("<br>")
                 var image = $("<img>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
                 var dog = $("<h4>").addClass("card-title").text(data[i].dogName);
@@ -116,16 +119,32 @@ $("#find-match").on("click", function (event) {
 
             $("#show-matches").show();
 
-            $(".contact-btn").on("click", function (event) {
+            $(".contact-btn").on("click", function () {
+                email = $(this).attr("data-email");
+                console.log(email);
                 $("#bork-box").modal("toggle");
 
-                var queryURL2 = `/api/match/${data[0].id}`
-
-                $.get(queryURL2)
+            });
+            // CONTACT-MODAL ===================================================
+            $("#send").on("click", function (event) {
+                event.preventDefault();
+                var newEmail = {
+                    name: $("#modalname").val().trim(),
+                    senderEmail: $("#modalemail").val().trim(),
+                    message: $("#contactbox").val().trim(),
+                    email: email
+                }
+                $.post("/send", newEmail)
                     .then(function (data) {
-                        console.log(data);
+                        console.log("post sent to backend", data);
+                        email = "";
                     })
-            
+                $("input").empty();
+                $("input").val("");
+                $("#contactbox").empty().text("My pup would love to meet yours!");
+                $("#bork-box").modal("toggle");
+
+
             });
 
         });
@@ -133,22 +152,10 @@ $("#find-match").on("click", function (event) {
 
     $("select").val("Yes");
     $("#match-q1").val("Small");
-
 });
 
 
 
-// CONTACT-MODAL ===================================================
-$("#send").on("click", function (event) {
-    event.preventDefault();
-
-    $("input").empty();
-    $("input").val("");
-    $("#contactbox").empty().text("My pup would love to meet yours!");
-    $("#bork-box").modal("toggle");
-
-
-});
 
 
 
