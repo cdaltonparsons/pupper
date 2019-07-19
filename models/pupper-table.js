@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var Pupper = sequelize.define("Pupper", {
-      ownerId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      // ownerId: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      // },
       dogName: {
         type: DataTypes.STRING,
         allowNull: false,

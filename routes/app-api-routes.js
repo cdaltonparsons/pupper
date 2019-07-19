@@ -10,7 +10,7 @@ module.exports = function (app) {
     // Adding to Puppers table
     app.post("/api/pups", function (req, res) {
 
-        req.body.ownerId = req.session.passport.user;
+        req.body.UserId = req.session.passport.user;
 
         db.Pupper.create(req.body).then(function (pupper) {
             console.log(req.body);
@@ -24,16 +24,17 @@ module.exports = function (app) {
         db.Pupper.findAll({
 
             where: {
-                ownerId: {
+                UserId: {
                     [Op.not]: req.session.passport.user
                 },
                 size: req.params.size,
                 energetic: req.params.energetic,
                 dominant: req.params.dominant
-            }
+            }, include: [db.User]
         }).then(function (data) {
             res.json(data)
 
+            console.log(`THIS IS THE DATA WE WANT`, data);
         });
 
     });
