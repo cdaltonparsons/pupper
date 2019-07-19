@@ -94,7 +94,7 @@ $("#find-match").on("click", function (event) {
 
             for (var i = 0; i < data.length; i++) {
 
-                var contactButton = $("<a>").addClass("btn btn-secondary btn-sm").attr("id", "contact-btn").attr("role", "button").text("Contact");
+                var contactButton = $("<a>").addClass("btn btn-secondary btn-sm contact-btn").attr("role", "button").text("Contact");
                 var space = $("<br>")
                 var image = $("<img>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
                 var dog = $("<h4>").addClass("card-title").text(data[i].dogName);
@@ -116,8 +116,7 @@ $("#find-match").on("click", function (event) {
 
             $("#show-matches").show();
 
-            $("#contact-btn").on("click", function (event) {
-                console.log("You clicked it!");
+            $(".contact-btn").on("click", function (event) {
                 $("#bork-box").modal("toggle");
             
             });
