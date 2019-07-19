@@ -10,8 +10,6 @@ module.exports = function (app) {
     // Adding to Puppers table
     app.post("/api/pups", function (req, res) {
 
-        console.log(req.session.passport.user);
-
         req.body.ownerId = req.session.passport.user;
 
         db.Pupper.create(req.body).then(function (pupper) {
@@ -27,7 +25,7 @@ module.exports = function (app) {
 
             where: {
                 ownerId: {
-                    [Sequelize.Op.not]: req.session.passport.user
+                    [Op.not]: req.session.passport.user
                 },
                 size: req.params.size,
                 energetic: req.params.energetic,
@@ -36,6 +34,15 @@ module.exports = function (app) {
         }).then(function (data) {
             res.json(data)
 
+        });
+
+        db.User.findOne({
+            where: {
+                id: ownerId
+            },
+            include: [db.Pupper]
+        }).then(function(data){
+            res.json(data);
         });
 
     });

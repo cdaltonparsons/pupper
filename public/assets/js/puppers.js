@@ -26,7 +26,6 @@ $("#submit").on("click", function(event) {
 
 
         var newPupper = {
-            // ownerName: ownerNameInput,
             dogName: dogNameInput,
             image: dogPhotoInput,
             size: q1Input,
@@ -93,7 +92,8 @@ $("#find-match").on("click", function (event) {
             for (var i = 0; i < data.length; i++) {
 
                 var contactButton = $("<a>").addClass("btn btn-secondary btn-sm").attr("id", "contact-btn").attr("role", "button").text("Contact");
-                var image = $("<div>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
+                var space = $("<br>")
+                var image = $("<img>").attr("style", "height: 200px; width: 100%; display: block;").attr("src", data[i].image).attr("alt", "Pupper Pic");
                 var dog = $("<h4>").addClass("card-title").text(data[i].dogName);
                 var cardBody = $("<div>").addClass("card-body");
                 var owner = $("<div>").addClass("card-header").text(`Owner: ${data[i].ownerName}`)
@@ -101,6 +101,7 @@ $("#find-match").on("click", function (event) {
                 var column = $("<div>").addClass("col-md-4 col-xs-12");
 
                 $(cardBody).prepend(contactButton);
+                $(cardBody).prepend(space);
                 $(cardBody).prepend(image);
                 $(cardBody).prepend(dog);
                 $(cardStyleDiv).prepend(cardBody);
@@ -114,7 +115,7 @@ $("#find-match").on("click", function (event) {
 
             $("#contact-btn").on("click", function (event) {
                 console.log("You clicked it!");
-                $("#contact-modal").modal("toggle");
+                $("#bork-box").modal("toggle");
             
             });
 
@@ -133,9 +134,10 @@ $("#find-match").on("click", function (event) {
 $("#send").on("click", function (event) {
     event.preventDefault();
 
+    $("input").empty();
     $("input").val("");
     $("#contactbox").empty().text("My pup would love to meet yours!");
-    $("#contact-modal").modal("toggle");
+    $("#bork-box").modal("toggle");
 
 });
 

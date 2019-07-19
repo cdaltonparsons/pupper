@@ -71,7 +71,9 @@ module.exports = function(sequelize, DataTypes) {
 
     Pupper.associate = function (models) {
       Pupper.belongsTo(models.User, {
-        ondelete: "casacade"
+        foreignKey: {
+          allowNull: false
+        }
       });
     };
 
