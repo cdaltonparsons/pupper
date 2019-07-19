@@ -38,15 +38,25 @@ module.exports = function(app, passport) {
   // protected GET routes to ensure user is signed in
 
   app.get("/survey", isLoggedIn, function(req, res) {
+<<<<<<< HEAD
     res.sendFile(path.join(__dirname, "../public/main-survey.html"));
+=======
+    res.sendFile(path.join(__dirname, "../public/main-survey.html"))
+    console.log(req.session);
+>>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
   });
 
   app.get("/match", isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/match-survey.html"));
   });
 
+<<<<<<< HEAD
   app.get("/matches", isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/matches.html"));
+=======
+  app.get("/contact", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/contact.html"));
+>>>>>>> 3065d472407ebcb73d938505b2070c60a8d4bcc4
   });
 
   app.get("/contact", function(req, res) {

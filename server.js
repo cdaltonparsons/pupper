@@ -1,4 +1,3 @@
-
 // *** Dependencies
 // =============================================================
 var express = require("express");
@@ -11,7 +10,6 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
-require("dotenv").config();
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -26,12 +24,6 @@ app.use(passport.session());
 
 // Static directory
 app.use(express.static("public"));
-
-//handlebars 
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 require("./routes/html-routes.js")(app, passport)
 require("./routes/app-api-routes.js")(app)

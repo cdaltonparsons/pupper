@@ -41,7 +41,7 @@
 
 
 <!-- Survey form -->
-<div class="container bg-active text-info">
+<div class="container bg-active text-info" id="filters">
     <div class="row">
         <div class="col-md-12">
             <br>
@@ -61,24 +61,23 @@
         <div class="col-md-4 col-xs-12 form-group">
             <label for="match-q1">I am looking to meet dogs that are:</label>
             <select class="form-control form-group col-md-6 match-questions" id="match-q1">
-                <option value="1">Small (under 25 lbs)</option>
-                <option value="2">Medium (between 25-50 lbs)</option>
-                <option value="3">Large (over 50 lbs)</option>
-                <option value="4">Any size</option>
+                <option value="Small">Small (under 25 lbs)</option>
+                <option value="Medium">Medium (between 25-50 lbs)</option>
+                <option value="Large">Large (over 50 lbs)</option>
             </select>
         </div>
         <div class="col-md-4 col-xs-12 form-group">
             <label for="match-q2">I want to meet dogs with lots of energy!</label>
             <select class="form-control form-group col-md-6 match-questions" id="match-q2">
-                <option value="1">Yes</option>
-                <option value="2">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select>
         </div>
         <div class="col-md-4 col-xs-12 form-group">
             <label for="match-q3">My dog plays well with dominant dogs.</label>
             <select class="form-control form-group col-md-6 match-questions" id="match-q3">
-                <option value="1">Yes</option>
-                <option value="2">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select>
         </div>
     </div>
@@ -87,7 +86,6 @@
             <button type="submit" data-toggle="modal" class="btn btn-info" id="find-match">Find Match</button>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
-
     </form>
 <br>
 <br>
@@ -97,25 +95,47 @@
 <br>
 </div>
 
-<!--Completed Modal-->
-<div class="container bg-active text-info">
+<!-- A div (hidden initially, then shown) that holds dynamically populated matches -->
+<div class="container" id="show-matches">
+    <div class="row" id="match-card-row"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<!--Contact Modal-->
+<div class="container text-info bg-active">
     <div class="row">
         <div class="col-12">
-            <div class="modal fade" id="match-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+            <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h4 class="modal-title" id="title">Success!</h4>
+                    <h4 class="modal-title" id="title"><i class="fas fa-paw"></i>&nbsp;&nbsp;Send a message to your match</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body mx-auto">
-                        <h5 id="match-message">Thanks for telling us about puppers you'd like to meet. Click next to see your matches.</h5>
+                    <div class="modal-body">
+                        <form method="POST" action="send">
+                        <div class="form-group">
+                            <label>Your First Name</label>
+                            <input class="form-control col-md-4" type="text" name="name">
+                            <br>
+                                <label>Your Email Address</label>
+                            <input class="form-control col-md-8" type="email" name="email">
+                            <br>  
+                            <label for="contactbox">Your Message</label>
+                            <textarea class="form-control col-md-12" type="text" name="message" id="contactbox" rows="5">My pup would love to meet yours!</textarea>
+                            <br>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal" id="close">Close</button>
-                    <a class="btn btn-info" href="/matches" role="button" id="view-matches">Next</a>
+                        <button class="btn btn-info" type="sumbit" id="send">Bork!</button>
+                    </form>
                     </div>
                 </div>
                 </div>
