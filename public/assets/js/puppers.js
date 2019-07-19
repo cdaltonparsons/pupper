@@ -67,9 +67,10 @@ $("#submit").on("click", function (event) {
 });
 
 // MATCH-SURVEY.HTML -----------------------------------------------------
-$(window).load(function () {
-    $("#show-matches").hide();
-});
+// $(window).load(function () {
+//     $("#show-matches").hide();
+// });
+
 
 $("#find-match").on("click", function (event) {
     event.preventDefault();
@@ -85,13 +86,12 @@ $("#find-match").on("click", function (event) {
 
     console.log(queryUrl);
 
+    $("#filters").hide();
 
     $.get(queryUrl)
         .then(function (data) {
 
             console.log(data);
-
-            $("#filters").hide();
 
             for (var i = 0; i < data.length; i++) {
                 console.log(data[i].User.email);
@@ -124,6 +124,7 @@ $("#find-match").on("click", function (event) {
             $(newRow).append(newCol);
             $(newCol).append(newButton);
             
+            
 
             $("#show-matches").show();
 
@@ -134,12 +135,14 @@ $("#find-match").on("click", function (event) {
 
             });
 
-            $("#find-more").on("click", function() {
-                $("#show-matches").empty();
+            $("#find-more").on("click", function () {
+                $("#match-card-row").empty();
                 $("#show-matches").hide();
+                $(newButton).remove();
                 $("#filters").show();
             });
             
+
             // CONTACT-MODAL ===================================================
             $("#send").on("click", function (event) {
                 event.preventDefault();
@@ -165,7 +168,6 @@ $("#find-match").on("click", function (event) {
         });
 
     
-
     $("select").val("Yes");
     $("#match-q1").val("Small");
 });
